@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  # resources :participations, only: [:create], shallow: true
+  resources :hunts, only: [:index, :show], shallow: true  do
+    member do
+      get :play
+    end
+    resources :checkpoints, only: [] do
+      member do
+        post :check
+        get :next
+      end
+    end
+  end
 end
