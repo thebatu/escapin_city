@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523132906) do
+ActiveRecord::Schema.define(version: 20170523140557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "hunt_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hunt_id"], name: "index_categories_on_hunt_id", using: :btree
+  end
+
+  create_table "checkpoints", force: :cascade do |t|
+    t.float    "lat"
+    t.float    "log"
+    t.text     "content"
+    t.text     "clue"
+    t.integer  "hunt_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hunt_id"], name: "index_checkpoints_on_hunt_id", using: :btree
+  end
+
+  create_table "hunts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "city"
+    t.float    "distance"
+    t.integer  "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_hunts_on_user_id", using: :btree
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer  "hunt_id"
+    t.integer  "user_id"
+    t.integer  "checkpoint_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["checkpoint_id"], name: "index_participations_on_checkpoint_id", using: :btree
+    t.index ["hunt_id"], name: "index_participations_on_hunt_id", using: :btree
+    t.index ["user_id"], name: "index_participations_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +73,10 @@ ActiveRecord::Schema.define(version: 20170523132906) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "categories", "hunts"
+  add_foreign_key "checkpoints", "hunts"
+  add_foreign_key "hunts", "users"
+  add_foreign_key "participations", "checkpoints"
+  add_foreign_key "participations", "hunts"
+  add_foreign_key "participations", "users"
 end
