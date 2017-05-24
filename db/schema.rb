@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523140557) do
+ActiveRecord::Schema.define(version: 20170524083751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.integer  "hunt_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hunt_id"], name: "index_categories_on_hunt_id", using: :btree
   end
 
   create_table "checkpoints", force: :cascade do |t|
@@ -40,8 +38,10 @@ ActiveRecord::Schema.define(version: 20170523140557) do
     t.string   "city"
     t.float    "distance"
     t.integer  "difficulty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_hunts_on_category_id", using: :btree
     t.index ["user_id"], name: "index_hunts_on_user_id", using: :btree
   end
 
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 20170523140557) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "categories", "hunts"
   add_foreign_key "checkpoints", "hunts"
+  add_foreign_key "hunts", "categories"
   add_foreign_key "hunts", "users"
   add_foreign_key "participations", "checkpoints"
   add_foreign_key "participations", "hunts"
