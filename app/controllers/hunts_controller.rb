@@ -3,13 +3,13 @@ class HuntsController < ApplicationController
   before_action :set_hunt, only: %i(show)
 
   def index
-    if params[:hunt][:city] == nil || params[:hunt][:category] == nil
-      @hunts = Hunt.all
-    else
-      params[:hunt][:category] != nil && params[:hunt][:city] != nil
-      @hunts = Hunt.near(params[:hunt][:city], 20)
+    @hunts = Hunt.all
+    if city = params[:hunt][:city]
+      @hunts = @hunts.near(city, 200)
     end
-    @hunts
+    if category_id = params[:hunt][:category].to_i
+      @hunts = @hunts.where(category_id: category_id)
+    end
     raise
   end
 
