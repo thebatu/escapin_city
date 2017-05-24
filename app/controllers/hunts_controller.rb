@@ -10,7 +10,6 @@ class HuntsController < ApplicationController
     if category_id = params[:hunt][:category].to_i
       @hunts = @hunts.where(category_id: category_id)
     end
-    @hunts
   end
 
 

@@ -23,10 +23,12 @@ puts 'Start seeding users...'
   if user.save
     puts "> #{user.email} created"
   else
-    puts "FAIL FAIL FAIL"
+    puts "FAIL USERS SEED" * 5
   end
 end
 
+
+puts "-" * 100
 
 puts 'Start seeding categories...'
 categories_list = %w(family friends food&beverage cultural sports music historical arts)
@@ -37,9 +39,11 @@ categories_list.each do |name|
   if category.save
     puts "> #{category.name} created"
   else
-    puts "FAIL FAIL FAIL"
+    puts "FAIL CATEGORY SEED" * 5
   end
 end
+
+puts "-" * 100
 
 cities = [
   '33000 Bordeaux',
@@ -68,12 +72,12 @@ cities.each do |city|
     if hunt.save
       puts "> #{hunt.name} created"
     else
-      puts "FAIL FAIL FAIL"
+      puts "FAIL HUNT SEED" * 5
     end
   end
 end
 
-
+puts "-" * 100
 
 puts 'Start seeding Checkpoints...'
 Hunt.all.each do |hunt|
@@ -88,10 +92,10 @@ Hunt.all.each do |hunt|
     if checkpoint.save
       puts "> #{checkpoint.lat} #{checkpoint.log} created"
     else
-      puts "FAIL FAIL FAIL"
+      puts "FAIL CHECKPOINTS SEED" * 5
     end
   end
-
+puts "-" * 100
   puts 'Start seeding Participations...'
   (12..24).to_a.sample.times do
     participation = Participation.new(
@@ -102,7 +106,7 @@ Hunt.all.each do |hunt|
     if participation.save
       puts "> Participation created"
     else
-      puts "FAIL FAIL FAIL"
+      puts "FAIL PARTICIPATION SEED" * 5
     end
   end
 end
