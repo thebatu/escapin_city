@@ -1,0 +1,41 @@
+h1 {
+  margin-bottom: 25px;
+}
+.container-background {
+  background-color: #213458;
+}
+.card {
+  height: 320px;
+  width: 320px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+}
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.list-unstyled {
+  padding-top: 50px;
+  padding-left: 10px;
+}
+#hunt-name {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+
