@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  belongs_to :hunt
+  has_many :hunts
 end

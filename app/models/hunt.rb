@@ -1,6 +1,6 @@
 class Hunt < ApplicationRecord
   belongs_to :user
-  has_one :category
+  belongs_to :category
   has_many :checkpoints
   has_many :participations
 end
