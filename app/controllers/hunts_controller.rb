@@ -1,27 +1,33 @@
 class HuntsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_hunt, only: %i(show)
 
   def index
-    if search_params[:city].present?
-      @hunts = Hunt.near(params[:city], 15)
-    elsif search_params[:category].present?
-      @hunts = Hunt(params[:category]
-    else
+    if params[:hunt][:city] == nil || params[:hunt][:category] == nil
       @hunts = Hunt.all
+    else
+      params[:hunt][:category] != nil && params[:hunt][:city] != nil
+      @hunts = Hunt.near(params[:hunt][:city], 20)
     end
+    @hunts
+    raise
   end
+
+
 
   def show
-    @hunt = Hunt.find(params[:id])
   end
 
-  # def play
-
-  # end
+  def play
+  end
 
   private
 
   def search_params
-    params.require(:search).permit(:city, :category)
+    params.require(:hunt).permit(:city, :category)
+  end
+
+  def set_hunt
+    @hunt = Hunt.find(params[:id])
   end
 end

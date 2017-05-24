@@ -41,13 +41,25 @@ categories_list = %w(family friends food&beverage cultural sports music historic
   end
 end
 
-
+cities = [
+  '33000 Bordeaux',
+  '75001 Paris',
+  '13001 Marseille',
+  '31000 Toulouse',
+  '69001 Lyon',
+  '54000 Nancy',
+  '57000 Strasbourg',
+  '44000 Nantes',
+  '59000 Lille',
+  '21000 Brest',
+  '34000 Montpellier'
+]
 puts 'Start seeding Hunts...'
 16.times do
 hunt = Hunt.new(
     name: Faker::App.name,
-    city: Faker::Address.city,
-    distance: Faker::Number.between(1, 3),
+    city: cities.sample,
+    mydistance: Faker::Number.between(1, 3),
     difficulty: Faker::Number.between(1, 5)
   )
   hunt.user = User.all.order('RANDOM()').first

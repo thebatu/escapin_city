@@ -4,11 +4,11 @@
   <%= simple_form_for :hunt, url: hunts_path, method: :get do |f| %>
     <div class="form-group row">
       <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-        <%= f.input :city, placeholder: "Select a city", input_html: { class: "input-lg" }, label_html: { class: "hidden" }, id: 'city' %>
+        <%= f.input :city, placeholder: "Select a city", id: 'city' %>
       </div>
 
       <div class="col-xs-12 col-sm-4">
-        <%= f.input :category, as: :string, label_html: { class: "hidden" }, placeholder: "Pick a category", id: 'category' %>
+        <%= f.input :category, placeholder: "Pick a category", id: 'category' %>
       </div>
     </div>
 
