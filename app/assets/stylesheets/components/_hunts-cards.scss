@@ -1,37 +1,41 @@
-#title-hunts{
-  margin: 60px;
+h1 {
+  margin-bottom: 25px;
 }
-
-.container{
-  padding: 5px;
+.container-background {
+  background-color: #213458;
 }
-.card{
-  padding: 5px;
-  height: 400px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  margin: 15px;
-}
-.card-img{
-  height: 200px;
-  padding: 5px;
-  background-size: 100%;
-  background-position: center center;
-  margin-bottom: 5px;
-}
-.card-description {
+.card {
+  height: 320px;
+  width: 320px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
   position: relative;
-  color: black;
-  padding: 5px;
-  height: 150px;
-  text-decoration: none;
+}
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.list-unstyled {
+  padding-top: 50px;
+  padding-left: 10px;
+}
+#hunt-name {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
 }
 
-#hunt-name{
-  font-size: 20px;
-  color: #25C4B5;
-}
-
-.price{
- font-size: 20px;
- color: #25C4B5;
-}

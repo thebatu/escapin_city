@@ -1,21 +1,54 @@
-<h1 class="text-center">Available hunts</h1>
-
-<div class="container">
-  <div class="row">
-    <% @hunts.each do |hunt| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <div class="card-description">
-            <ul class="list-unstyled">
-              <li id="hunt-name"><strong>--<%=hunt.name.capitalize %>--</strong></li>
-              <br>
-              <li><strong>Category:</strong> <i><%= hunt.category.name.capitalize %></i></li>
-              <li><strong>Distance:</strong> <i><%= hunt.mydistance %></i></li>
-            </ul>
+<h1 class="text-center">Our incredible escapes</h1>
+<div class="container-background">
+  <div class="index-container">
+    <div class="row">
+      <% @hunts.each do |hunt| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/Huntcategoriesimg/Arts/artful-graffiti-art-kingdom.jpg');">
+            <a href="#" class="card-link"></a>
+              <div class="card-user">
+                <img src="http://findicons.com/files/icons/1072/face_avatars/300/a02.png" class="avatar">
+              </div>
+              <ul class="list-unstyled">
+                <li id="hunt-name"><strong>--<%=hunt.name.capitalize %>--</strong></li>
+                <br>
+                <li><strong>Category :</strong> <i><%= hunt.category.name.capitalize %></i></li>
+                <li><strong>Distance :</strong> <i><%= hunt.mydistance %></i></li>
+                  <li><strong>Difficulty :</strong> <i><%= hunt.difficulty %> / 5</i></li>
+              </ul>
           </div>
-          <div class="difficulty"><strong>Difficulty : <%= hunt.difficulty %> / 5</strong></div>
         </div>
-      </div>
-    <% end %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/Huntcategoriesimg/Arts/artful-graffiti-art-kingdom.jpg');">
+            <a href="#" class="card-link"></a>
+              <div class="card-user">
+                <img src="http://findicons.com/files/icons/1072/face_avatars/300/a02.png" class="avatar">
+              </div>
+              <ul class="list-unstyled">
+                <li id="hunt-name"><strong>--<%=hunt.name.capitalize %>--</strong></li>
+                <br>
+                <li><strong>Category :</strong> <i><%= hunt.category.name.capitalize %></i></li>
+                <li><strong>Distance :</strong> <i><%= hunt.mydistance %></i></li>
+                <li><strong>Difficulty :</strong> <i><%= hunt.difficulty %> / 5</i></li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/Huntcategoriesimg/Arts/artful-graffiti-art-kingdom.jpg');">
+            <a href="#" class="card-link"></a>
+              <div class="card-user">
+                <img src="http://findicons.com/files/icons/1072/face_avatars/300/a02.png" class="avatar">
+              </div>
+              <ul class="list-unstyled">
+                <li id="hunt-name"><strong>--<%=hunt.name.capitalize %>--</strong></li>
+                <br>
+                <li><strong>Category :</strong> <i><%= hunt.category.name.capitalize %></i></li>
+                <li><strong>Distance :</strong> <i><%= hunt.mydistance %></i></li>
+                <li><strong>Difficulty :</strong> <i><%= hunt.difficulty %> / 5</i></li>
+              </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
