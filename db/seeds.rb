@@ -30,9 +30,9 @@ end
 
 puts 'Start seeding categories...'
 categories_list = %w(family friends food&beverage cultural sports music historical arts)
-16.times do
+categories_list.each do |name|
   category = Category.new(
-  name: categories_list.sample
+  name: name
   )
   if category.save
     puts "> #{category.name} created"
@@ -55,50 +55,54 @@ cities = [
   '34000 Montpellier'
 ]
 puts 'Start seeding Hunts...'
-16.times do
-hunt = Hunt.new(
-    name: Faker::App.name,
-    city: cities.sample,
-    mydistance: Faker::Number.between(1, 3),
-    difficulty: Faker::Number.between(1, 5)
-  )
-  hunt.user = User.all.order('RANDOM()').first
-  hunt.category = Category.all.order('RANDOM()').first
-  if hunt.save
-    puts "> #{hunt.name} created"
-  else
-    puts "FAIL FAIL FAIL"
+cities.each do |city|
+  10.times do
+  hunt = Hunt.new(
+      name: Faker::App.name,
+      city: city,
+      mydistance: Faker::Number.between(1, 3),
+      difficulty: Faker::Number.between(1, 5)
+    )
+    hunt.user = User.order('RANDOM()').first
+    hunt.category = Category.order('RANDOM()').first
+    if hunt.save
+      puts "> #{hunt.name} created"
+    else
+      puts "FAIL FAIL FAIL"
+    end
   end
 end
 
 
 
 puts 'Start seeding Checkpoints...'
-16.times do
-  checkpoint = Checkpoint.new(
-    lat: Faker::Address.latitude,
-    log: Faker::Address.longitude,
-    content: Faker::Hacker.say_something_smart,
-    clue: Faker::Hacker.say_something_smart
-  )
-  checkpoint.hunt = Hunt.all.order('RANDOM()').first
-  if checkpoint.save
-    puts "> #{checkpoint.lat} #{checkpoint.log} created"
-  else
-    puts "FAIL FAIL FAIL"
-  end
-end
-
-puts 'Start seeding Participations...'
-16.times do
-    participation = Participation.new(
+Hunt.all.each do |hunt|
+  (6..12).to_a.sample.times do
+    checkpoint = Checkpoint.new(
+      lat: Faker::Address.latitude,
+      log: Faker::Address.longitude,
+      content: Faker::Hacker.say_something_smart,
+      clue: Faker::Hacker.say_something_smart,
+      hunt: hunt
     )
-    participation.user = User.all.order('RANDOM()').first
-    participation.hunt = Hunt.all.order('RANDOM()').first
-    participation.checkpoint = Checkpoint.all.order('RANDOM()').first
+    if checkpoint.save
+      puts "> #{checkpoint.lat} #{checkpoint.log} created"
+    else
+      puts "FAIL FAIL FAIL"
+    end
+  end
+
+  puts 'Start seeding Participations...'
+  (12..24).to_a.sample.times do
+    participation = Participation.new(
+      hunt: hunt,
+      user: User.all.order('RANDOM()').first,
+      checkpoint: Checkpoint.all.order('RANDOM()').first
+    )
     if participation.save
       puts "> Participation created"
     else
       puts "FAIL FAIL FAIL"
     end
+  end
 end
