@@ -2,8 +2,8 @@ class HuntsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if search_params[:location].present?
-      @hunts = Hunt.near(params[:location], 15)
+    if search_params[:city].present?
+      @hunts = Hunt.near(params[:city], 15)
     elsif search_params[:category].present?
       @hunts = Hunt(params[:category]
     else
@@ -22,6 +22,6 @@ class HuntsController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:location, :category)
+    params.require(:search).permit(:city, :category)
   end
 end

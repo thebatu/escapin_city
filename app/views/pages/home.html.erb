@@ -1,2 +1,21 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container">
+  <%= simple_form_for :hunt, url: hunts_path, method: :get do |f| %>
+    <div class="form-group row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+        <%= f.input :city, placeholder: "Select a city", input_html: { class: "input-lg" }, label_html: { class: "hidden" }, id: 'city' %>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :category, as: :string, label_html: { class: "hidden" }, placeholder: "Pick a category", id: 'category' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <%= f.button :submit, "Find a hunt", class: "btn btn-primary btn-lg", id: 'search-btn' %>
+      </div>
+    </div>
+  <% end %>
+</div>
