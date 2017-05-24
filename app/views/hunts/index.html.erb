@@ -1,6 +1,3 @@
-<h1>Hunts#index</h1>
-<p>Find me in app/views/hunts/index.html.erb</p>
-
 <h1 class="text-center">Available hunts</h1>
 
 <div class="container">
@@ -8,18 +5,15 @@
     <% @hunts.each do |hunt| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card">
-        <%= link_to hunt_path(hunt) do %>
-          <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path engine.category.photo.path,crop: :fill %>')"></div>
-          <% end %>
           <div class="card-description">
             <ul class="list-unstyled">
               <li id="hunt-name"><strong>--<%=hunt.name.capitalize %>--</strong></li>
               <br>
-              <li><strong>Category:</strong> <i><%= hunt.category.name %></i></li>
+              <li><strong>Category:</strong> <i><%= hunt.category.name.capitalize %></i></li>
               <li><strong>Distance:</strong> <i><%= hunt.mydistance %></i></li>
             </ul>
           </div>
-          <div class="difficulty"><strong><%= hunt.difficulty %>€</strong></div>
+          <div class="difficulty"><strong>Difficulty : <%= hunt.difficulty %> / 5</strong></div>
         </div>
       </div>
     <% end %>

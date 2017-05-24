@@ -10,7 +10,6 @@ class HuntsController < ApplicationController
       @hunts = Hunt.near(params[:hunt][:city], 20)
     end
     @hunts
-    raise
   end
 
 

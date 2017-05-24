@@ -1,0 +1,37 @@
+#title-hunts{
+  margin: 60px;
+}
+
+.container{
+  padding: 5px;
+}
+.card{
+  padding: 5px;
+  height: 400px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin: 15px;
+}
+.card-img{
+  height: 200px;
+  padding: 5px;
+  background-size: 100%;
+  background-position: center center;
+  margin-bottom: 5px;
+}
+.card-description {
+  position: relative;
+  color: black;
+  padding: 5px;
+  height: 150px;
+  text-decoration: none;
+}
+
+#hunt-name{
+  font-size: 20px;
+  color: #25C4B5;
+}
+
+.price{
+ font-size: 20px;
+ color: #25C4B5;
+}
