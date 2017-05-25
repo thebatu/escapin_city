@@ -1,18 +1,35 @@
 
-footer {
-background: #ccc;
-position:absolute;
-bottom: 0px;
-width: 100%;
-padding-top: 50px;
-height: 200px;
-text-align: center
+.footer {
+  display: flex;
+  /*justify-content: space-between;*/
+  align-items: center;
+  background: #141829; /*#213458; /*#F9F2D7;*/
+  position:absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px;
 }
 
-.list-inline {
-font-size: 35px;
+a {
+  font-size: 45px;
+  font-color: #213458;
 }
 
-.foot_note {
-    font-size:14px;
-  }
+p, .p1, .p2 {
+  font-size: 12px;
+  font-style: bolder;
+  color: white;
+}
+
+.footer-left {
+  text-align: left;
+  flex: 0 1 auto;
+}
+
+.footer-mid {
+  flex: 1 1 auto;
+}
+
+.footer-right {
+  flex: 0 1 auto;
+}
