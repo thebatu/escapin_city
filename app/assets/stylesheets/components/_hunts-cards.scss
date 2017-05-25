@@ -1,0 +1,46 @@
+.container {
+    background-color: #fff;
+}
+h1 {
+  margin-bottom: 25px;
+}
+.row-spaced-wrapper>.row {
+    margin-top: 40px;
+}
+.preview-wrapper {
+  position: relative;
+  z-index: 1;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  overflow: hidden;
+}
+.preview-details {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    color: #333;
+}
+.preview-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.preview-info {
+    display: block;
+    position: relative;
+    padding: 20px;
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+.preview-hunt-name {
+    color: #00bc66;
+    font-size: 1.25em;
+}
+.preview-hunt-description {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

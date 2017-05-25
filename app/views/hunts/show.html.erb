@@ -1,2 +1,27 @@
-<h1>Hunts#show</h1>
-<p>Find me in app/views/hunts/show.html.erb</p>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="side-menu">
+        <div id="hunt-title-category">
+          <h1><%= @hunt.name %></h1>
+          </h3><%= @hunt.category.name %></h3>
+        </div>
+        <div id="hunt-description">
+          <p> <%= @engine.description %> </p>
+          <strong> <%= @engine.price %> €/per day </strong>
+        </div>
+        <div>
+          <%= simple_form_for [@hunt] do |f| %>
+          <%= f.button :submit, "Let's Go !", class: "btn btn-success btn-lg margin-button"%>
+          <% end %>
+          <%= link_to "Back", hunt_path, class: "btn btn-success btn-lg margin-button" %>
+        </div>
+      </div>
+      <div class="map-container">
+        <div class="col-md-6">
+          <%= image_tag_map_for(@hunt, { size: "650x550", pin_color: "0xF61067" }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

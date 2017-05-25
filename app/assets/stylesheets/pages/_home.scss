@@ -6,7 +6,43 @@
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.3333333;
-  border-radius: 2px;
+  border-radius: 10px;
   display: block;
   margin: 0 auto;
+  font-family: Baloo;
+}
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.content {
+  /* equal to footer height */
+  margin-bottom: -80px;
+}
+.content:after {
+  content: "";
+  display: block;
+}
+
+.site-footer, .content:after {
+  height: 70px;
+}
+
+a {
+  color: white;
+}
+
+.a1 {
+  margin-left: 10px;
+  margin-bottom: 2px;
+  padding: 0 20px;
+  border-radius: 20em;
+  line-height: 35px;
+  background-color: #213458;
+  color: white;
+  font-size: 16px;
+  border: 2px solid #21294C;
 }
