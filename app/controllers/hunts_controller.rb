@@ -1,6 +1,6 @@
 class HuntsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_hunt, only: %i(show play)
+  before_action :set_hunt, only: %i(show play check)
 
   def index
     @hunts = Hunt.all
@@ -12,19 +12,45 @@ class HuntsController < ApplicationController
     end
   end
 
-
-
   def show
   end
 
+  def next_position
+  end
+
+  def prev_position
+  end
+
+
   def play
-    @checkpoints = @hunt.checkpoints
-    @hash = Gmaps4rails.build_markers(@checkpoints) do |checkpoint, marker|
-      marker.lat checkpoint.lat
-      marker.lng checkpoint.log
+    @checkpoint = @hunt.checkpoints.first
+    @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
+      marker.lat check.lat
+      marker.lng check.log
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
+
+  def update_checkpoints(args)
+  end
+
+  def check
+    checkpoint_id = params[:checkpoint_id]
+    @current_checkpoint = Checkpoint.find(checkpoint_id)
+    if true
+      @checkpoint = @current_checkpoint.lower_item
+    else
+      @checkpoint = @current_checkpoint
+    end
+    @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
+      marker.lat check.lat
+      marker.lng check.log
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+  end
+
+
+
 
   private
 
