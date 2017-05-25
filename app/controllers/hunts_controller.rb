@@ -4,12 +4,9 @@ class HuntsController < ApplicationController
 
   def index
     @hunts = Hunt.all
-    if city = params[:hunt][:city]
-      @hunts = @hunts.near(city, 200)
-    end
-    if category_id = params[:hunt][:category].to_i
-      @hunts = @hunts.where(category_id: category_id)
-    end
+    city = params[:hunt][:city]
+    category_id = params[:hunt][:category]
+    @hunts = Hunt.search(city, category_id)
   end
 
 
