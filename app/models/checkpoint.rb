@@ -1,4 +1,5 @@
 class Checkpoint < ApplicationRecord
-  belongs_to :hunt
   has_many :participations
+  belongs_to :hunt
+  acts_as_list scope: :hunt
 end

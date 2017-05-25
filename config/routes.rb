@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :hunts, only: [:index, :show], shallow: true  do
     member do
       get :play
+      post :check
     end
     resources :checkpoints, only: [] do
       member do

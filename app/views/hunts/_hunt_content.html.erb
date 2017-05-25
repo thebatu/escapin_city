@@ -1,10 +1,20 @@
-<h1>Hunts#play</h1>
-<p>Find me in app/views/hunts/play.html.erb</p>
+<%= link_to 'verify', check_hunt_path(@hunt, checkpoint_id: @checkpoint.id), method: :post, remote: true %>
+<ul>
+  <li>
+    <%= @hash.each {|x| x}%>
+  </li>
+  <li>
+    checkpoint.id = <%= @checkpoint.id%>
+  </li>
+  <li>
+    hunt.id = <%= @hunt.id%>
+  </li>
+  <li>
+    checkpoint.pos = <%= @checkpoint.position%>
+  </li>
+</ul>
 
-<div id="hunt-content">
-  <%= render 'hunt_content' %>
-</div>
-
+<div id="map"></div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
