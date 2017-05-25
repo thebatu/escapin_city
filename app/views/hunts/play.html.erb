@@ -1,11 +1,8 @@
 <h1>Hunts#play</h1>
 <p>Find me in app/views/hunts/play.html.erb</p>
 
-<%= @checkpoints %>
 
-<%= @hash %>
-
-
+<%= @hash.each do |x| x end  %>
 
 
 <div id="map"></div>
@@ -20,7 +17,7 @@
         if (markers.length == 0) {
           handler.getMap().setZoom(2);
         } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
+          handler.getMap().setZoom(2);
         }
       });
     });

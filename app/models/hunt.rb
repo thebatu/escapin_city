@@ -1,7 +1,7 @@
 class Hunt < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  has_many :checkpoints
+  has_many :checkpoints, -> { order(position: :asc) }
   has_many :participations
 
   geocoded_by :city

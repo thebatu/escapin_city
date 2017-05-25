@@ -23,6 +23,8 @@ gem "gmaps4rails"
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
+gem 'acts_as_list'
+
 
 group :development, :test do
   gem 'binding_of_caller'
