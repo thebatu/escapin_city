@@ -6,10 +6,7 @@
           <h1><%= @hunt.name %></h1>
           </h3><%= @hunt.category.name %></h3>
         </div>
-        <div id="hunt-description">
-          <p> <%= @engine.description %> </p>
-          <strong> <%= @engine.price %> €/per day </strong>
-        </div>
+        <div id="hunt-description"></div>
         <div>
           <%= simple_form_for [@hunt] do |f| %>
           <%= f.button :submit, "Let's Go !", class: "btn btn-success btn-lg margin-button"%>
@@ -18,9 +15,7 @@
         </div>
       </div>
       <div class="map-container">
-        <div class="col-md-6">
-          <%= image_tag_map_for(@hunt, { size: "650x550", pin_color: "0xF61067" }) %>
-        </div>
+        
       </div>
     </div>
   </div>

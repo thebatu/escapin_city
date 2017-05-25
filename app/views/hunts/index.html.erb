@@ -4,20 +4,22 @@
       <div class="row">
         <% @hunts.each do |hunt| %>
           <div class="col-sm-6 col-md-3">
-            <div class="preview-wrapper">
-              <div class="card">
-                <span class="preview-image"></span>
-                  <img src="https://snazzy-maps-cdn.azureedge.net/assets/106593-city-sunglass.png?v=20170525102759">
-                <span class="preview-hunt-name">--<%=hunt.name.capitalize %>--</span>
-                  <br>
-                  <span class="preview-hunt-description">Category : <%= hunt.category.name.capitalize %>
-                  <br>
-                  <span>Distance : <%= hunt.mydistance %></span>
-                  <br>
-                  <span>Difficulty : <%= hunt.difficulty %> / 5</span>
-                  <br>
+            <%= link_to hunt_path(hunt) do%>
+              <div class="preview-wrapper">
+                <div class="card">
+                  <span class="preview-image"></span>
+                    <img src="https://snazzy-maps-cdn.azureedge.net/assets/106593-city-sunglass.png?v=20170525102759">
+                  <span class="preview-hunt-name">--<%=hunt.name.capitalize %>--</span>
+                    <br>
+                    <span class="preview-hunt-description">Category : <%= hunt.category.name.capitalize %>
+                    <br>
+                    <span>Distance : <%= hunt.mydistance %></span>
+                    <br>
+                    <span>Difficulty : <%= hunt.difficulty %> / 5</span>
+                    <br>
+                </div>
               </div>
-            </div>
+          <% end %>
           </div>
         <% end %>
       </div>
