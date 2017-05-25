@@ -4,11 +4,12 @@
   background: #141829; /*#213458; /*#F9F2D7;*/
   transition: all 0.3s ease;
   display: flex;
-  height: 60px;
+  height: 80px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
 }
+
 
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
@@ -21,7 +22,8 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 600px;
+  width: 295px;
+  margin-top: 15px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -47,14 +49,14 @@
   line-height: 35px;
   background-color: #213458;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   border: 2px solid #21294C
 }
-.navbar-wagon-link:hover {
+/*.navbar-wagon-link:hover {
   color: white;
   background: #D23333;
   border-color: #ac2626;
-}
+}*/
 
 /* Navbar right button */
 /*.navbar-wagon-button {
