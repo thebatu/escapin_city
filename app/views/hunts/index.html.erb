@@ -6,11 +6,13 @@
       <% @hunts.each do |hunt| %>
       <div class="col-sm-6 col-md-3 hunt-card" style="height: 300px;">
         <%= link_to hunt_path(hunt) do%>
-        <div class="col-xs-12 top-hunt-card" style="height: 60%; background: url('https://snazzy-maps-cdn.azureedge.net/assets/106593-city-sunglass.png?v=20170525102759')">
+        <div class="top-hunt-card" id="map-<%= hunt.id %>" style="height: 60%; overflow: hidden;">
+          <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{hunt.city}&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:C%7C#{hunt.latitude},#{hunt.longitude}&key=#{ENV['API_KEY']}"  %>
         </div>
         <div class="col-xs-12 bottom-hunt-card" style="height: 40%">
           <div class="bottom-hunt-card-left col-xs-8 text-left" >
               <p><%=hunt.name.capitalize %></p>
+              <p><%=hunt.city %></p>
               <p><%=hunt.category.name.capitalize %></p>
               <p>Distance : <%= hunt.mydistance %></p>
               <p>Difficulty : <%= hunt.difficulty %> / 5</p>
@@ -26,4 +28,5 @@
     </div>
   </div>
 </div>
+
 

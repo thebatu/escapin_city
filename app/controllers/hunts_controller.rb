@@ -3,10 +3,12 @@ class HuntsController < ApplicationController
   before_action :set_hunt, only: %i(show play check)
 
   def index
-    @hunts = Hunt.all
-    city = params[:hunt][:city]
-    category_id = params[:hunt][:category]
-    @hunts = Hunt.search(city, category_id)
+    if params[:hunt]
+      city = params[:hunt][:city]
+      category_id = params[:hunt][:category]
+      @hunts = Hunt.search(city, category_id)
+    end
+    @hunts = Hunt.first(8)
   end
 
   def show
