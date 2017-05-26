@@ -34,7 +34,17 @@ class HuntsController < ApplicationController
   def check
     checkpoint_id = params[:check][:checkpoint_id]
     @current_checkpoint = Checkpoint.find(checkpoint_id)
-    if check_pos?
+
+    latitude = params[:check][:latitude]
+    longitude = params[:check][:longitude]
+    accuracy = params[:check][:accuracy]
+
+    loc_nav = [latitude, longitude]
+    loc_checkpoint = [@current_checkpoint.lat , @current_checkpoint.log ]
+
+    distance = Geocoder::Calculations.distance_between(loc_nav,loc_checkpoint)
+
+    if (distance + accuracy.to_f) < 70 # 70 supposed min distance to treasure
       @checkpoint = @current_checkpoint.lower_item
     else
       @checkpoint = @current_checkpoint
@@ -45,32 +55,6 @@ class HuntsController < ApplicationController
     end
   end
 
-  def check_pos?loc1, loc2
-    checkpoint_id = params[:check][:checkpoint_id]
-    latitude = params[:check][:latitude]
-    longitude = params[:check][:longitude]
-
-    # def distance loc1, loc2
-
-  rad_per_deg = Math::PI/180  # PI / 180
-  rkm = 6371                  # Earth radius in kilometers
-  rm = rkm * 1000             # Radius in meters
-
-  # dlat_rad = (loc2[0]-loc1[0]) * rad_per_deg  # Delta, converted to rad
-  dlat_rad = (@current_checkpoint.lat - latitude) * rad_per_deg  # Delta, converted to rad
-
-  # dlon_rad = (loc2[1]-loc1[1]) * rad_per_deg
-  dlon_rad = (@current_checkpoint.log - longitude) * rad_per_deg
-
-  lat1_rad, lon1_rad = loc1.map {|i| i * rad_per_deg }
-  lat2_rad, lon2_rad = loc2.map {|i| i * rad_per_deg }
-
-  a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
-  c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
-
-  rm * c # Delta in meters
-
-  end
 
 
 
