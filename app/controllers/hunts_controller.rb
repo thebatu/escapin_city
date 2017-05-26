@@ -34,9 +34,19 @@ class HuntsController < ApplicationController
   end
 
   def check
-    checkpoint_id = params[:checkpoint_id]
+    checkpoint_id = params[:check][:checkpoint_id]
     @current_checkpoint = Checkpoint.find(checkpoint_id)
-    if true
+
+    latitude = params[:check][:latitude]
+    longitude = params[:check][:longitude]
+    accuracy = params[:check][:accuracy]
+
+    loc_nav = [latitude, longitude]
+    loc_checkpoint = [@current_checkpoint.lat , @current_checkpoint.log ]
+
+    distance = Geocoder::Calculations.distance_between(loc_nav,loc_checkpoint)
+
+    if (distance + accuracy.to_f) < 70 # 70 supposed min distance to treasure
       @checkpoint = @current_checkpoint.lower_item
     else
       @checkpoint = @current_checkpoint
@@ -46,6 +56,8 @@ class HuntsController < ApplicationController
       marker.lng check.log
     end
   end
+
+
 
 
   private

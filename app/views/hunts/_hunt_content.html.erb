@@ -1,18 +1,28 @@
-<%= link_to 'verify', check_hunt_path(@hunt, checkpoint_id: @checkpoint.id), method: :post, remote: true %>
 
+
+<%#= link_to 'verify', check_hunt_path(hunt, checkpoint_id: checkpoint.id, lat: crd.latitude, lng: crd.longitude ), method: :post, remote: true %>
+<a href=""></a>
 <ul>
   <li>
     <%= @hash.each {|x| x}%>
   </li>
   <li>
-    checkpoint.id = <%= @checkpoint.id%>
+    checkpoint.id = <%= checkpoint.id%>
   </li>
   <li>
-    hunt.id = <%= @hunt.id%>
+    hunt.id = <%= hunt.id%>
   </li>
   <li>
-    checkpoint.pos = <%= @checkpoint.position%>
+    checkpoint.pos = <%= checkpoint.position%>
   </li>
 </ul>
 
+<div>
+  <h3>Clue</h3>
+  <%= checkpoint.clue %>
+</div>
 <div id="map"></div>
+<div>
+  <h3>Content</h3>
+  <%= checkpoint.content %>
+</div>

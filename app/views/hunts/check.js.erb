@@ -1,4 +1,4 @@
-$('#hunt-content').html("<%= j render 'hunt_content' %>")
+$('#hunt-content').html("<%= j render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>")
 
 var handler = Gmaps.build('Google');
 handler.buildMap({ internal: { id: 'map' } }, function() {
@@ -12,3 +12,6 @@ handler.buildMap({ internal: { id: 'map' } }, function() {
     handler.getMap().setZoom(2);
   }
 });
+  
+// update checkoint_id field
+$('#check_checkpoint_id').val(<%= @checkpoint.id %>)
