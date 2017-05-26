@@ -32,9 +32,9 @@ class HuntsController < ApplicationController
   end
 
   def check
-    checkpoint_id = params[:checkpoint_id]
+    checkpoint_id = params[:check][:checkpoint_id]
     @current_checkpoint = Checkpoint.find(checkpoint_id)
-    if true
+    if check_pos?
       @checkpoint = @current_checkpoint.lower_item
     else
       @checkpoint = @current_checkpoint
@@ -44,6 +44,14 @@ class HuntsController < ApplicationController
       marker.lng check.log
     end
   end
+
+  def check_pos?
+    checkpoint_id = params[:check][:checkpoint_id]
+    latitude = params[:check][:latitude]
+    longitude = params[:check][:longitude]
+      
+  end
+
 
 
   private
