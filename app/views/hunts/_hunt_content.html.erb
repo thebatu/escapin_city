@@ -1,4 +1,6 @@
 <%= link_to 'verify', check_hunt_path(@hunt, checkpoint_id: @checkpoint.id), method: :post, remote: true %>
+
+
 <ul>
   <li>
     <%= @hash.each {|x| x}%>

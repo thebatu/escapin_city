@@ -2,23 +2,7 @@
   <p>play.html.erb</p>
 
 <div id="hunt-content">
-  <%= link_to 'verify', check_hunt_path(@hunt, checkpoint_id: @checkpoint.id), method: :post, remote: true %>
-  <ul>
-    <li>
-      <%= @hash.each {|x| x}%>
-    </li>
-    <li>
-      checkpoint.id = <%= @checkpoint.id%>
-    </li>
-    <li>
-      hunt.id = <%= @hunt.id%>
-    </li>
-    <li>
-      checkpoint.pos = <%= @checkpoint.position%>
-    </li>
-  </ul>
-
-  <div id="map"></div>
+<%= render 'hunt_content' %>
 
 </div>
 
@@ -34,7 +18,7 @@
       if (markers.length == 0) {
         handler.getMap().setZoom(2);
       } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
+        handler.getMap().setZoom(2);
       }
     });
   });
