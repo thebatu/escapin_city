@@ -42,11 +42,8 @@ class HuntsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
       marker.lat check.lat
       marker.lng check.log
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
-
-
 
 
   private
