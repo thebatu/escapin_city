@@ -8,7 +8,7 @@ class HuntsController < ApplicationController
       category_id = params[:hunt][:category]
       @hunts = Hunt.search(city, category_id)
     end
-    @hunts = Hunt.first(8)
+    #hunts = Hunt.first(8)
   end
 
   def show
@@ -26,7 +26,9 @@ class HuntsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
       marker.lat check.lat
       marker.lng check.log
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      marker.title   "#checkpoint = " + @checkpoint.position.to_s
+      marker.infowindow "<b>#{@checkpoint.clue}</b>"
+      # marker.infowindow render_to_string(partial: "map_box", locals: { checkpoint: @checkpoint })
     end
   end
 
@@ -46,7 +48,7 @@ class HuntsController < ApplicationController
 
     distance = Geocoder::Calculations.distance_between(loc_nav,loc_checkpoint)
 
-    if (distance + accuracy.to_f) < 70 # 70 supposed min distance to treasure
+    if (distance + accuracy.to_f) > 70 # 70 supposed min distance to treasure
       @checkpoint = @current_checkpoint.lower_item
     else
       @checkpoint = @current_checkpoint
@@ -54,10 +56,9 @@ class HuntsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
       marker.lat check.lat
       marker.lng check.log
+      marker.infowindow "<b>#{@checkpoint.clue}</b>"
     end
   end
-
-
 
 
   private
