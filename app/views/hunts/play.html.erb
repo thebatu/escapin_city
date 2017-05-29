@@ -10,9 +10,12 @@
       <%= f.submit 'verify' %>
     <% end %>
 
-
     <div id="hunt-content">
+      <div  class="col-xs-12 col-sm-6 col-md-8">
+        <div class="row">
       <%= render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>
+      </div>
+      </div>
     </div>
 
     <% content_for(:after_js) do %>
