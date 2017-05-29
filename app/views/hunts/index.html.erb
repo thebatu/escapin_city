@@ -1,32 +1,28 @@
-
 <div class="container">
-  <h1 class="text-center">Our incredible escapes</h1>
-  <div class="row-spaced-wrapper">
-    <div class="row">
-      <% @hunts.each do |hunt| %>
-      <div class="col-sm-6 col-md-3 hunt-card" style="height: 300px;">
-        <%= link_to hunt_path(hunt) do%>
-        <div class="top-hunt-card" id="map-<%= hunt.id %>" style="height: 60%; overflow: hidden;">
-          <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{hunt.city}&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:C%7C#{hunt.latitude},#{hunt.longitude}&key=#{ENV['API_KEY']}"  %>
-        </div>
-        <div class="col-xs-12 bottom-hunt-card" style="height: 40%">
-          <div class="bottom-hunt-card-left col-xs-8 text-left" >
-              <p><%=hunt.name.capitalize %></p>
-              <p><%=hunt.city %></p>
-              <p><%=hunt.category.name.capitalize %></p>
-              <p>Distance : <%= hunt.mydistance %></p>
-              <p>Difficulty : <%= hunt.difficulty %> / 5</p>
+  <div class="row">
+    <% @hunts.each do |hunt| %>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <%= link_to hunt_path(hunt) do %>
+          <div class="hunt-card">
+            <div class="top-hunt-card">
+              <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{hunt.city}&zoom=13&size=322x322&maptype=roadmap&markers=color:red%7Clabel:C%7C#{hunt.checkpoints.first.lat},#{hunt.checkpoints.first.log}&key=#{ENV['API_KEY']}", class: "test-image" %>
+              <h2><%= hunt.name.capitalize %></h2>
+            </div>
+            <div class="bottom-hunt-card">
+              <div class="bottom-left-hunt-card">
+                <div class="city">City : <%=hunt.city %></div>
+                <p>Category : <%=hunt.category.name.capitalize %></p>
+                <p>Distance : <%= hunt.mydistance %>km</p>
+                <p>Difficulty : <%= hunt.difficulty %> / 5</p>
+              </div>
+              <div class="bottom-right-hunt-card">
+                <img src="user.jpg" alt="user" class="avatar-large">
+                <p>Created by Mr Blabla</p>
+              </div>
+            </div>
           </div>
-          <div class="bottom-hunt-card-right col-xs-4 text-right">
-            <p>Test</p>
-            <p>avatar</p>
-          </div>
-        </div>
         <% end %>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
-
-
