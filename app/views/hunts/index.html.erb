@@ -1,4 +1,5 @@
 <div class="container">
+  <h1>Our crazy escapes 🤠</h1>
   <div class="row">
     <% @hunts.each do |hunt| %>
       <div class="col-md-4 col-sm-6 col-xs-12">
@@ -10,14 +11,16 @@
             </div>
             <div class="bottom-hunt-card">
               <div class="bottom-left-hunt-card">
-                <div class="city">City : <%=hunt.city %></div>
+                <div class="description">
+                <p>City : <%=hunt.city %></p>
                 <p>Category : <%=hunt.category.name.capitalize %></p>
                 <p>Distance : <%= hunt.mydistance %>km</p>
                 <p>Difficulty : <%= hunt.difficulty %> / 5</p>
+                </div>
               </div>
               <div class="bottom-right-hunt-card">
                 <img src="user.jpg" alt="user" class="avatar-large">
-                <p>Created by Mr Blabla</p>
+                <p>Created by : X</p>
               </div>
             </div>
           </div>
