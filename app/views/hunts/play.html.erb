@@ -3,43 +3,28 @@
       <div class="col-xs-12">
 
 
-    <%= simple_form_for :check, url: check_hunt_path(@hunt), method: :post, remote: true, html: { id: "check-form" } do |f| %>
-      <%= f.input :checkpoint_id, input_html: { value: @checkpoint.id }, :as => :hidden %>
-      <%= f.input :latitude , :as => :hidden%>
-      <%= f.input :longitude, :as => :hidden%>
-      <%= f.input :accuracy ,:as => :hidden%>
-      <%= f.submit 'verify' %>
-    <% end %>
+        <div id="hunt-content">
+          <%= render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>
+        </div>
 
-    <div id="hunt-content">
-
-      <%= render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>
-      </div>
       </div>
     </div>
-
-
   </div>
-</div>
 
-    <% content_for(:after_js) do %>
-      <script>
-        $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function() {
-            markers = handler.addMarkers(<%= raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            if (markers.length == 0) {
-              handler.getMap().setZoom(2);
-            } else if (markers.length == 1) {
-              handler.getMap().setZoom(2);
-            }
-          });
+  <% content_for(:after_js) do %>
+    <script>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
         });
-      </script>
-    <% end %>
-
-</div>
-</div>
-</div>
+      });
+    </script>
+  <% end %>

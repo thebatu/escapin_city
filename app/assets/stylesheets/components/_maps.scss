@@ -1,4 +1,34 @@
+.mymap {
+  position: relative;
+}
+
 #map {
   height: 480px;
   border: 5px solid;
+
+}
+
+.form-button {
+  display: flex;
+}
+.verify-form {
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+  z-index: 1;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+
+.my-modal-button {
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+  z-index: 1;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
 }

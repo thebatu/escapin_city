@@ -50,8 +50,10 @@ class HuntsController < ApplicationController
 
     if (distance + accuracy.to_f) > 70 # 70 supposed min distance to treasure
       @checkpoint = @current_checkpoint.lower_item
+      @show_content = @checkpoint.content
     else
       @checkpoint = @current_checkpoint
+      @show_content = nil
     end
     @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
       marker.lat check.lat

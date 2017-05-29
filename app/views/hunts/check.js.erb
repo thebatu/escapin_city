@@ -1,5 +1,6 @@
 $('#hunt-content').html("<%= j render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>")
 
+
 $(document).ready(function() {
 var handler = Gmaps.build('Google');
 handler.buildMap({ internal: { id: 'map' } }, function() {
@@ -10,7 +11,7 @@ handler.buildMap({ internal: { id: 'map' } }, function() {
     handler.getMap().setZoom(2);
   }
   else if (markers.length == 1) {
-    handler.getMap().setZoom(2);
+    handler.getMap().setZoom(7);
   }
 });
   });
