@@ -8,14 +8,14 @@
         </div>
         <div id="hunt-description"></div>
         <div>
-          <%= simple_form_for [@hunt] do |f| %>
+          <%= simple_form_for :hunt, url: play_hunt_path(@hunt), method: :get do |f| %>
           <%= f.button :submit, "Let's Go !", class: "btn btn-success btn-lg margin-button"%>
           <% end %>
-          <%= link_to "Back", hunt_path, class: "btn btn-success btn-lg margin-button" %>
+          <%= link_to "Back", :back,  class: "btn btn-success btn-lg margin-button" %>
         </div>
       </div>
       <div class="map-container">
-        
+
       </div>
     </div>
   </div>
