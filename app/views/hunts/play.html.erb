@@ -1,37 +1,41 @@
-<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-8">
 
-<%= simple_form_for :check, url: check_hunt_path(@hunt), method: :post, remote: true, html: { id: "check-form" } do |f| %>
-  <%= f.input :checkpoint_id, input_html: { value: @checkpoint.id }, :as => :hidden %>
-  <%= f.input :latitude , :as => :hidden%>
-  <%= f.input :longitude, :as => :hidden%>
-  <%= f.input :accuracy ,:as => :hidden%>
-  <%= f.submit 'verify' %>
-<% end %>
+    <%= simple_form_for :check, url: check_hunt_path(@hunt), method: :post, remote: true, html: { id: "check-form" } do |f| %>
+      <%= f.input :checkpoint_id, input_html: { value: @checkpoint.id }, :as => :hidden %>
+      <%= f.input :latitude , :as => :hidden%>
+      <%= f.input :longitude, :as => :hidden%>
+      <%= f.input :accuracy ,:as => :hidden%>
+      <%= f.submit 'verify' %>
+    <% end %>
 
+    <div id="hunt-content">
+      <div  class="col-xs-12 col-sm-6 col-md-8">
+        <div class="row">
+      <%= render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>
+      </div>
+      </div>
+    </div>
 
-<div id="hunt-content">
-  <%= render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>
+    <% content_for(:after_js) do %>
+      <script>
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(2);
+            }
+          });
+        });
+      </script>
+    <% end %>
+
 </div>
-
-
-
-<!-- generate Gmap for the play page, needed for generating first map -->
-<% content_for(:after_js) do %>
-  <script>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(2);
-        }
-      });
-    });
-  </script>
-<% end %>
-
+</div>
 </div>
