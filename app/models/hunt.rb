@@ -18,4 +18,12 @@ class Hunt < ApplicationRecord
       self.all
     end
   end
+
+  def gmap_path
+    path.map { |(lat, log)| "#{lat},#{log}" }.join("|")
+  end
+
+  def path
+    checkpoints.order(position: :asc).pluck(:lat, :log)
+  end
 end
