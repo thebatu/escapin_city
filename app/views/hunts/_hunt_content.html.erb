@@ -1,25 +1,5 @@
 <%#= link_to 'verify', check_hunt_path(hunt, checkpoint_id: checkpoint.id, lat: crd.latitude, lng: crd.longitude ), method: :post, remote: true %>
-<!-- <a href=""></a>
--->
-<!-- <ul>
-  <li>
-    <%= @hash.each {|x| x}%>
-  </li>
-  <li>
-    checkpoint.id = <%= checkpoint.id%>
-  </li>
-  <li>
-    hunt.id = <%= hunt.id%>
-  </li>
-  <li>
-    checkpoint.pos = <%= checkpoint.position%>
-  </li>
-</ul>
 
-<div>
-  <h3>Clue</h3>
-  <%= checkpoint.clue %>
-</div> -->
 
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
@@ -29,29 +9,16 @@
   </div>
 </div>
 
-<div class="modal fade bs-example-modal-sm2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <%= checkpoint.content  %>
-    </div>
+<div id="map"></div>
+<div class="form-button">
+  <div class="verify-form">
+      <%= simple_form_for :check, url: check_hunt_path(@hunt), method: :post, remote: true, html: { id: "check-form" } do |f| %>
+        <%= f.input :checkpoint_id, input_html: { value: @checkpoint.id }, :as => :hidden %>
+        <%= f.input :latitude , :as => :hidden%>
+        <%= f.input :longitude, :as => :hidden%>
+        <%= f.input :accuracy ,:as => :hidden%>
+        <%= f.submit 'verify location', class: "btn btn-primary btn-lg"  %>
+      <% end %>
   </div>
 </div>
-
-  <div class="mymap">
-    <div id="map"></div>
-    <div class="form-button">
-    <div class="verify-form">
-        <%= simple_form_for :check, url: check_hunt_path(@hunt), method: :post, remote: true, html: { id: "check-form" } do |f| %>
-          <%= f.input :checkpoint_id, input_html: { value: @checkpoint.id }, :as => :hidden %>
-          <%= f.input :latitude , :as => :hidden%>
-          <%= f.input :longitude, :as => :hidden%>
-          <%= f.input :accuracy ,:as => :hidden%>
-          <%= f.submit 'verify location', class: "btn btn-primary btn-lg"  %>
-        <% end %>
-    </div>
-    <button type="button" class="btn btn-primary my-modal-button" data-toggle="modal" data-target=".bs-example-modal-sm">Clue</button>
-    <% unless @show_content.nil? %>
-          <button type="button" class="btn btn-primary my-modal-button" data-toggle="modal" data-target=".bs-example-modal-sm2">Content</button>
-    <% end %>
-  </div>
-</div>
+<button type="button" class="btn btn-primary my-modal-button" data-toggle="modal" data-target=".bs-example-modal-sm">Clue</button>

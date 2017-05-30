@@ -48,12 +48,14 @@ class HuntsController < ApplicationController
 
     distance = Geocoder::Calculations.distance_between(loc_nav,loc_checkpoint)
 
-    if (distance + accuracy.to_f) > 70 # 70 supposed min distance to treasure
+    if distance < (70 + accuracy.to_f) # 70 supposed min distance to treasure
       @checkpoint = @current_checkpoint.lower_item
       @show_content = @checkpoint.content
+      @checkpoint_fail = false
     else
       @checkpoint = @current_checkpoint
       @show_content = nil
+      @checkpoint_fail = true
     end
     @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
       marker.lat check.lat
