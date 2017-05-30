@@ -1,4 +1,5 @@
 require 'faker'
+include ActionView::Helpers::AssetUrlHelper
 
 puts 'Destroying current Users database...'
 puts 'Destroying current Hunts database...'
@@ -30,18 +31,17 @@ end
 
 puts "-" * 100
 
-puts 'Start seeding categories...'
-categories_list = %w(family friends food&beverage cultural sports music historical arts)
-categories_list.each do |name|
-  category = Category.new(
-  name: name
-  )
-  if category.save
-    puts "> #{category.name} created"
-  else
-    puts "FAIL CATEGORY SEED" * 5
-  end
-end
+
+category1 = Category.create!(name:"family", photo: 'familie.jpg')
+category2 = Category.create!(name:"friends", photo: 'Friends.jpg')
+category3 = Category.create!(name:"cultural", photo: 'cultural.jpeg')
+category4 = Category.create!(name:"historical", photo: 'historical.jpeg')
+category5 = Category.create!(name:"arts", photo: 'art.jpg')
+category6 = Category.create!(name:"foods$beverages", photo: 'foodie.jpg')
+category7 = Category.create!(name:"sports", photo: 'sport.jpeg')
+category8 = Category.create!(name:"music", photo: 'music.jpg')
+
+
 
 puts "-" * 100
 

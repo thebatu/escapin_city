@@ -7,8 +7,9 @@ class HuntsController < ApplicationController
       city = params[:hunt][:city]
       category_id = params[:hunt][:category]
       @hunts = Hunt.search(city, category_id)
+    else
+      @hunts = Hunt.first(8)
     end
-    #hunts = Hunt.first(8)
   end
 
   def show
