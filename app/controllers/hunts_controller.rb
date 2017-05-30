@@ -1,4 +1,6 @@
 class HuntsController < ApplicationController
+  layout "hunts_layout", except: [:index, :show]
+
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_hunt, only: %i(show play check)
 
@@ -39,11 +41,11 @@ class HuntsController < ApplicationController
     checkpoint_id = params[:check][:checkpoint_id]
     @current_checkpoint = Checkpoint.find(checkpoint_id)
 
-    latitude = params[:check][:latitude]
-    longitude = params[:check][:longitude]
+    @latitude = params[:check][:latitude]
+    @longitude = params[:check][:longitude]
     accuracy = params[:check][:accuracy]
 
-    loc_nav = [latitude, longitude]
+    loc_nav = [@latitude, @longitude]
     loc_checkpoint = [@current_checkpoint.lat , @current_checkpoint.log ]
 
     distance = Geocoder::Calculations.distance_between(loc_nav,loc_checkpoint)
@@ -62,6 +64,7 @@ class HuntsController < ApplicationController
       marker.lng check.log
       marker.infowindow "<b>#{@checkpoint.clue}</b>"
     end
+    @hash.push(@latitude, @longitude)
   end
 
 

@@ -1,9 +1,9 @@
 <div class="my-body">
+  <div class="my-content">
+    <div class="hunt-content">
 
-<% content_for(:footer_class, 'hide') %>
 
-
-<div id="hunt-content">
+<div id="hunt-contents">
   <%= render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>
 </div>
 
@@ -37,6 +37,11 @@
   </div>
 </div>
 
+
+
+
+
+
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
@@ -55,4 +60,8 @@
   </script>
 <% end %>
 
+
+
+</div>
+</div>
 </div>

@@ -1,17 +1,25 @@
-$('#hunt-content').html("<%= j render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>")
+$('#hunt-contents').html("<%= j render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>")
 
 
 $(document).ready(function() {
   var handler = Gmaps.build('Google');
   handler.buildMap({ internal: { id: 'map' } }, function() {
     var markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    markers.push
+    ([
+    { lat: <%= raw @latitude %>, lng: <%= raw @longitude %>}
+
+    ]);
+
+
+
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     if (markers.length == 0) {
       handler.getMap().setZoom(2);
     }
     else if (markers.length == 1) {
-      handler.getMap().setZoom(7);
+      handler.getMap().setZoom(2);
     }
   });
 });

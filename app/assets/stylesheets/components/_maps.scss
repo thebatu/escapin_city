@@ -1,41 +1,43 @@
-
 .my-body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-#map {
-  border: 5px solid;
+.my-content {
+  display: flex;
   flex-grow: 1;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
 }
 
-// .content {
-//   flex-grow: 1;
-//   display: flex;
-// }
 .hunt-content {
   display: flex;
   flex-grow: 1;
   position: relative;
 }
 
-.form-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+#hunt-contents {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
 }
-.btn-clue {
+
+#map {
+  flex-grow: 1;
+  position: relative;
+  border: solid #0000FF;
+}
+
+#btn-clue {
   position: absolute;
   bottom: 10px;
   left: 10px;
 }
 
-
-
+#btn-verify {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
 
 //
 // .verify-form {
