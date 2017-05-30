@@ -7,14 +7,14 @@
           <h3><%= @hunt.category.name %></h3>
         </div>
         <div id="hunt-description"></div>
+        <div class="hunt-map text-center">
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=275x274&path=#{@hunt.gmap_path}&sensor=false&key=#{ENV['API_KEY']}" %>
+        </div>
         <div>
           <%= simple_form_for :hunt, url: play_hunt_path(@hunt), method: :get do |f| %>
             <%= f.button :submit, "Let's Go !", class: "btn btn-success btn-lg margin-button"%>
           <% end %>
           <%= link_to "Back", :back,  class: "btn btn-success btn-lg margin-button" %>
-        </div>
-        <div>
-          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=400x400&path=#{@hunt.gmap_path}&sensor=false&key=#{ENV['API_KEY']}" %>
         </div>
       </div>
     </div>
