@@ -1,11 +1,16 @@
+.content {
+  background-color: #FFFFFF;
+}
+
 .container {
-    background-color: #464646;
+    background-color: #FFFFFF;
 }
 h1 {
-  font-family: "Open Sans",Verdana,Geneva,sans-serif;
+  font-family: "Baloo", "Open Sans",Verdana,Geneva,sans-serif;
   font-size: 25px;
   margin-bottom: 25px;
   text-align: center;
+  color: #000000;
 }
 .hunt-card {
   position: relative;
@@ -14,7 +19,7 @@ h1 {
   display: flex;
   flex-direction: column;
   padding: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   background-color: #272727;
   border-radius: 5px;
 }
@@ -26,7 +31,7 @@ h1 {
   overflow: hidden;
 }
 h2 {
-  font-family: "Open Sans",Verdana,Geneva,sans-serif;
+  font-family: "Baloo", "Open Sans",Verdana,Geneva,sans-serif;
   font-size: 25px;
   padding-left: 10px;
   color: white;
@@ -53,13 +58,23 @@ h2 {
   color: white;
   font-family: "Open Sans",Verdana,Geneva,sans-serif;
   height: 35%;
-  width: 50%;
-  text-align: right;
+  width: 100%;
+  //text-align: right;
+  display: flex;
+  justify-content: flex-start;
   font-size: 12px;
-  padding-right: 10px;
+  //padding-right: 10px;
+  padding-left: 10px;
 }
 
 .bottom-hunt-card {
   display: flex;
-  justify-content: space-around;
+  //justify-content: space-around;
+  flex-direction: column;
 }
+
+.bottom-hunt-card:hover {
+  display: block;
+  background-color: #00bc66;
+}
+

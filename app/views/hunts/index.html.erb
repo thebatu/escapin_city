@@ -6,21 +6,21 @@
         <%= link_to hunt_path(hunt) do %>
           <div class="hunt-card">
             <div class="top-hunt-card">
-              <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{hunt.city}&zoom=13&size=322x322&maptype=roadmap&markers=color:red%7Clabel:C%7C#{hunt.checkpoints.first.lat},#{hunt.checkpoints.first.log}&key=#{ENV['API_KEY']}", class: "test-image" %>
-              <h2><%= hunt.name.capitalize %></h2>
+              <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{hunt.city}&zoom=13&size=322x322&maptype=roadmap&markers=color:red%7Clabel:C%7C#{hunt.checkpoints.first.lat},#{hunt.checkpoints.first.log}&key=#{ENV['API_KEY']}", class:"test-image" %>
             </div>
             <div class="bottom-hunt-card">
+              <h2><%= hunt.name.capitalize %></h2>
               <div class="bottom-left-hunt-card">
                 <div class="description">
-                <p>City : <%=hunt.city %></p>
-                <p>Category : <%=hunt.category.name.capitalize %></p>
-                <p>Distance : <%= hunt.mydistance %>km</p>
-                <p>Difficulty : <%= hunt.difficulty %> / 5</p>
+                  <p>City : <%=hunt.city %></p>
+                  <p>Category : <%=hunt.category.name.capitalize %></p>
+                  <p>Distance : <%= hunt.mydistance %>km</p>
+                  <p>Difficulty : <%= hunt.difficulty %> / 5</p>
                 </div>
               </div>
               <div class="bottom-right-hunt-card">
-                <img src="user.jpg" alt="user" class="avatar-large">
                 <p>Created by : X</p>
+                <img src="user.jpg" alt="user" class="avatar-large">
               </div>
             </div>
           </div>
