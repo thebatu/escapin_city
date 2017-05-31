@@ -1,34 +1,63 @@
-.mymap {
+.my-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.my-content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.hunt-content {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+#hunt-contents {
+  display: flex;
+  flex-grow: 1;
   position: relative;
 }
 
 #map {
-  height: 480px;
-  border: 5px solid;
-
+  flex-grow: 1;
+  position: relative;
+  border: solid #0000FF;
 }
 
-.form-button {
-  display: flex;
-}
-.verify-form {
-  align-items: center;
-  justify-content: space-between;
-  justify-content: center;
-  z-index: 1;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 4px 2px;
+#btn-clue {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
-.my-modal-button {
-  align-items: center;
-  justify-content: space-between;
-  justify-content: center;
-  z-index: 1;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 4px 2px;
+#btn-verify {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
+
+//
+// .verify-form {
+//   align-items: center;
+//   justify-content: space-between;
+//   justify-content: center;
+//   z-index: 1;
+//   text-align: center;
+//   text-decoration: none;
+//   font-size: 16px;
+//   margin: 4px 2px;
+// }
+//
+// .my-modal-button {
+//   align-items: center;
+//   justify-content: space-between;
+//   justify-content: center;
+//   z-index: 1;
+//   text-align: center;
+//   text-decoration: none;
+//   font-size: 16px;
+//   margin: 4px 2px;
+// }

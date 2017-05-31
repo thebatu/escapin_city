@@ -7,8 +7,13 @@ puts 'Destroying current Categories database...'
 puts 'Destroying current Checkpoints database...'
 puts 'Destroying current Participations database...'
 
-models = [ User,Hunt, Category, Checkpoint, Participation ]
-
+models = [
+  Participation,
+  Checkpoint,
+  Hunt,
+  User,
+  Category
+]
 
 models.each do |model|
   model.destroy_all
@@ -16,7 +21,7 @@ end
 
 
 puts 'Start seeding users...'
-16.times do
+10.times do
   user = User.new(
     email: "#{Faker::Name.first_name}.#{Faker::Name.last_name}@gmail.com",
     password: Faker::Internet.password
@@ -28,6 +33,7 @@ puts 'Start seeding users...'
   end
 end
 
+User.create!(email: "toto@toto.com", password: "totototo");
 
 puts "-" * 100
 
@@ -76,12 +82,11 @@ cities.each do |city|
     end
   end
 end
-
 puts "-" * 100
 
 puts 'Start seeding Checkpoints...'
 Hunt.all.each do |hunt|
-  (6..12).to_a.sample.times do
+  (3..6).to_a.sample.times do
     checkpoint = Checkpoint.new(
       lat: Faker::Address.latitude,
       log: Faker::Address.longitude,
@@ -95,9 +100,9 @@ Hunt.all.each do |hunt|
       puts "FAIL CHECKPOINTS SEED" * 5
     end
   end
-puts "-" * 100
+  puts "-" * 100
   puts 'Start seeding Participations...'
-  (12..24).to_a.sample.times do
+  (6..12).to_a.sample.times do
     participation = Participation.new(
       hunt: hunt,
       user: User.all.order('RANDOM()').first,
@@ -110,3 +115,66 @@ puts "-" * 100
     end
   end
 end
+
+the_hunt_data = {
+  name: "Mystic Burdigala",
+  city: "Bordeaux",
+  mydistance: 5,
+  difficulty: 3,
+  user: User.first,
+  category: Category.find_by_name("cultural"),
+}
+the_hunt = Hunt.create!(the_hunt_data)
+
+checkpoints_data = [
+  {
+    lat: 44.849803,
+    log:-0.578613,
+    content: "key was made by Alex the first",
+    clue: "find the key next to the fountine"
+  },
+  {
+    lat: 44.849803,
+    log:-0.574634,
+    content:"Castle is the first to be built in this area",
+    clue: "find the castle"
+  },
+  {
+    lat: 44.841032,
+    log:-0.580720,
+    content: " 300 people died here by the black virus",
+    clue: "find 300 and one "
+  },
+  {
+    lat: 44.837667,
+    log:-0.576767,
+    content: "the castsle is the biggest in Gironde",
+    clue: "find the castle"
+  },
+  {
+    lat: 44.838568,
+    log: -0.572869,
+    content: "this famouse horse was ridden by Alexander the great",
+    clue: "look for the horse"
+  },
+  {
+    lat: 44.836683,
+    log:-0.566696,
+    content: "this tree is the oldest in the reigon",
+    clue: " look for an old tree!"
+  },
+  {
+    lat: 44.840180,
+    log: -0.560146,
+    content: "this roof-top is standing still since 1863",
+    clue: "find the red roof-top"
+  },
+  {
+    lat: 44.849376,
+    log: -0.561242,
+    content: "the huge sand dune is part of the structure",
+    clue: "find the yellow sand"
+  }
+]
+
+the_hunt.checkpoints.create!(checkpoints_data)
