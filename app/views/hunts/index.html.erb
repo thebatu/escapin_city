@@ -3,29 +3,27 @@
   <div class="row">
     <% @hunts.each do |hunt| %>
       <div class="col-md-4 col-sm-6 col-xs-12">
-        <%= link_to hunt_path(hunt) do %>
-          <div class="hunt-card">
-            <div class="top-hunt-card">
-            <%= image_tag "#{hunt.category.photo}", size: "350x200" %>
-
-            </div>
-            <div class="bottom-hunt-card">
-              <h2><%= hunt.name.capitalize %></h2>
-              <div class="bottom-left-hunt-card">
-                <div class="description">
-                  <p>City : <%=hunt.city %></p>
-                  <p>Category : <%=hunt.category.name.capitalize %></p>
+        <div class="hunt-card-wrapper">
+          <%= link_to hunt_path(hunt) do %>
+            <div class="hunt-card">
+              <div class="top-hunt-card" style="background-image: url(<%= asset_path "#{hunt.category.photo}" %>)">
+              </div>
+              <div class="bottom-hunt-card">
+                <div class="card-description">
+                  <h2><%= hunt.name.capitalize %></h2>
+                  <p id="categ">Category : <%=hunt.category.name.capitalize %></p>
+                  <p>City : <%= hunt.city %></p>
                   <p>Distance : <%= hunt.mydistance %>km</p>
                   <p>Difficulty : <%= hunt.difficulty %> / 5</p>
+                  <p>Created by : </p>
+                </div>
+                <div class="card-author">
+                  <%= image_tag "user.jpg", class: "avatar-large" %>
                 </div>
               </div>
-              <div class="bottom-right-hunt-card">
-                <p>Created by : X</p>
-                <img src="user.jpg" alt="user" class="avatar-large">
-              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
