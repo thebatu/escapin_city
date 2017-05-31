@@ -8,9 +8,9 @@ class HuntsController < ApplicationController
     if params[:hunt]
       city = params[:hunt][:city]
       category_id = params[:hunt][:category]
-      @hunts = Hunt.search(city, category_id)
+      @hunts = Hunt.order(created_at: :desc).search(city, category_id)
     else
-      @hunts = Hunt.first(8)
+      @hunts = Hunt.order(created_at: :desc)
     end
   end
 
@@ -61,7 +61,7 @@ class HuntsController < ApplicationController
 
     distance = Geocoder::Calculations.distance_between(loc_nav,loc_checkpoint)
 
-    if distance < (70 + accuracy.to_f) # 70 supposed min distance to treasure
+    if distance > (1 + accuracy.to_f) # 70 supposed min distance to treasure
       @checkpoint = @current_checkpoint.lower_item
       @show_content = @checkpoint.content
       @checkpoint_fail = false

@@ -40,16 +40,14 @@ puts "-" * 100
 
 category1 = Category.create!(name:"Family", photo: 'familie.jpg')
 category2 = Category.create!(name:"Friends", photo: 'Friends.jpg')
-category3 = Category.create!(name:"Cultural", photo: 'cultural.jpeg')
-category4 = Category.create!(name:"Historical", photo: 'historical.jpeg')
+category3 = Category.create!(name:"Cultural", photo: 'cultural.jpg')
+category4 = Category.create!(name:"Historical", photo: 'historical.jpg')
 category5 = Category.create!(name:"Arts", photo: 'art.jpg')
 category6 = Category.create!(name:"Foods & Beverages", photo: 'foodie.jpg')
-category7 = Category.create!(name:"Sports", photo: 'sport.jpeg')
+category7 = Category.create!(name:"Sports", photo: 'sport.jpg')
 category8 = Category.create!(name:"Music", photo: 'music.jpg')
-
-
-
 puts "-" * 100
+
 
 cities = [
   '33000 Bordeaux',
@@ -66,7 +64,7 @@ cities = [
 ]
 puts 'Start seeding Hunts...'
 cities.each do |city|
-  10.times do
+  2.times do
   hunt = Hunt.new(
       name: Faker::App.name,
       city: city,
@@ -116,13 +114,15 @@ Hunt.all.each do |hunt|
   end
 end
 
+
+
 the_hunt_data = {
   name: "Mystic Burdigala",
   city: "Bordeaux",
   mydistance: 5,
   difficulty: 3,
   user: User.first,
-  category: Category.find_by_name("cultural"),
+  category: Category.find_by_name("Cultural")
 }
 the_hunt = Hunt.create!(the_hunt_data)
 
@@ -131,25 +131,25 @@ checkpoints_data = [
     lat: 44.849803,
     log:-0.578613,
     content: "key was made by Alex the first",
-    clue: "find the key next to the fountine"
+    clue: "find the key next to the fountain"
   },
   {
     lat: 44.849803,
     log:-0.574634,
     content:"Castle is the first to be built in this area",
-    clue: "find the castle"
+    clue: "find the old castle with lion statu"
   },
   {
     lat: 44.841032,
     log:-0.580720,
-    content: " 300 people died here by the black virus",
-    clue: "find 300 and one "
+    content: " 300 people died here by the black plague",
+    clue: "find traces of old people "
   },
   {
     lat: 44.837667,
     log:-0.576767,
-    content: "the castsle is the biggest in Gironde",
-    clue: "find the castle"
+    content: "the castle is the biggest in Gironde",
+    clue: "find the huge castle"
   },
   {
     lat: 44.838568,
