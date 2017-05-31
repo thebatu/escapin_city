@@ -15,23 +15,7 @@ class HuntsController < ApplicationController
 
   def show
     @waypoints = @hunt.checkpoints
-    # .map do |cp|
-    #   {location: [cp.lat, cp.log], stopover: true}
-    # end
-
-    # @waypoints = Gmaps4rails.build_markers(@waypoints) do |check, marker|
-    #   marker.lat check.lat
-    #   marker.lng check.log
-    # end
-
   end
-
-  def next_position
-  end
-
-  def prev_position
-  end
-
 
   def play
     @checkpoint = @hunt.checkpoints.first

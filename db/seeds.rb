@@ -131,19 +131,19 @@ checkpoints_data = [
     lat: 44.849803,
     log:-0.578613,
     content: "key was made by Alex the first",
-    clue: "find the key next to the fountine"
+    clue: "find the key next to the old fountine"
   },
   {
     lat: 44.849803,
     log:-0.574634,
     content:"Castle is the first to be built in this area",
-    clue: "find the castle"
+    clue: "find the castle with the lion statue"
   },
   {
     lat: 44.841032,
     log:-0.580720,
-    content: " 300 people died here by the black virus",
-    clue: "find 300 and one "
+    content: " 300 people died here by the black plague",
+    clue: "find the number 300 on the wall of the church"
   },
   {
     lat: 44.837667,
