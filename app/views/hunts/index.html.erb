@@ -11,11 +11,11 @@
               <div class="bottom-hunt-card">
                 <div class="card-description">
                   <h2><%= hunt.name.capitalize %></h2>
+                  <p id="categ">Category : <%=hunt.category.name.capitalize %></p>
                   <p>City : <%= hunt.city %></p>
-                  <p>Category : <%=hunt.category.name.capitalize %></p>
                   <p>Distance : <%= hunt.mydistance %>km</p>
                   <p>Difficulty : <%= hunt.difficulty %> / 5</p>
-                  <p>Created by : X</p>
+                  <p>Created by : </p>
                 </div>
                 <div class="card-author">
                   <%= image_tag "user.jpg", class: "avatar-large" %>
