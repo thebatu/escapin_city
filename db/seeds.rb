@@ -178,3 +178,75 @@ checkpoints_data = [
 ]
 
 the_hunt.checkpoints.create!(checkpoints_data)
+
+
+------------------------------------------------
+
+the_hunt_data = {
+  name: "Sweet Saint Emilion",
+  city: "Bordeaux",
+  mydistance: 10,
+  difficulty: 2,
+  user: User.first,
+  category: Category.find_by_name("food&beverage"),
+}
+the_hunt = Hunt.create!(the_hunt_data)
+
+checkpoints_data = [
+  {
+    lat: 44.891958,
+    log:-0.156938,
+    content: "Well done ! The “castel daou rey meaning the King’s Keep, is the only romanesque keep still intact in Gironde. Located inside the walls of the city, the building rests on a rocky massif isolated from all sides and dug in natural caves and quarries exploited since the Middle Ages. From the floor to the lower terrace at the top, there is height of 32 meters.",
+    clue: "To begin the escape, you must find the oldest monument of this village and then walk on the top !"
+  },
+  {
+    lat: 44.892910,
+    log:-0.154929,
+    content:"This fortification wall can also be considered as a ceremonial wall, prestige whose the first purpose would have been to show the power of the village more than to protect him. In any case that it should be requiered to pay a fee to enter in the intramural town, representinga new source of wealth.",
+    clue: "The edifice you have to find was commissioned by England in the 12th century to protect prosperous Saint-Emilion's village."
+  },
+  {
+    lat: 44.893681,
+    log:-0.156756,
+    content: "The most impressive church that stands out from the upper town is the Collegiate church. It’s not a fortunate coincidence. The religious community that lived in those walls between the 12th and the 18th century was a college of Canons following the rule of Saint Augustin and embodying the official religious institution. The etymology of the word canon helps us to understand their mission: it comes from the Ancient Greek “Kanôn” what means “the rule”.",
+    clue: "The construction of the next monument started in 1110 at the request of the Archbishop Arnaud Géraud de Cabanac, good luck ! "
+  },
+  {
+    lat: 44.893167,
+    log:-0.156314,
+    content: "The monolithic church is an underground religious building dugged in the early 12th century of gigantic proportions (38 metres long and 12 metres high). At the heart of the city, the monolithic church reminds the religious activity of the city in the Middle Ages and intrigues by its unusual design. If it shows itself in the eyes of the visitor by the position of a 68-meter-high bell tower, then it hides itself behind the elegance of three openings on the front and a Gothic portal often closed. Is that the church is as well surprising as fragile!",
+    clue: "the monument you must find has gigantic proportions (38 metres long and 12 metres high)"
+  },
+  {
+    lat: 44.893758,
+    log: -0.156151,
+    content: "Well done, have a little break and enjoy their tasty meals !",
+    clue: "Find the oldest restaurant in the village and go for lunch with this voucher code : STEMILION17"
+  },
+  {
+    lat: 44.895265,
+    log:-0.154696,
+    content: "Well done, Founded by Mrs. Lacroix, the convent and its 18 nuns had for main purpose to provide free education to girls from poor classes of the city and its Jurisdiction. The sisters managed to go up to 80 registered schoolgirls, figure which went down to 8 after the great epidemic of plague which, occurred 3 years after installation.",
+    clue: "The sisters of the order of Saint-Ursule settle down in Saint-Emilion on June 1st, 1630. Find this place"
+  },
+  {
+    lat: 44.907281,
+    log: -0.165012,
+    content: "By tradition, the Dominicans are part of the family of mendicant monks alongside the Franciscans. Their rule is based on the notion of individual poverty. For the architecture of the monastery match this ideal, certain rules had to be applied. The monastery buildings and the church should not exceed a certain height. This section of wall suggests that Saint-Emilion mendicant monks should not be as poor as their order demanded.",
+    clue: "Be careful, you must  ride around 20 minutes to go to the huge monaster from XIIème siècle."
+  },
+  {
+    lat: 44.908084,
+    log: -0.142243,
+    content: "Well done you finished the escape, enjoy the visit and don’t forget to try their amazing wines.",
+    clue: "To finish you must ride until the nearest castel which is called The Champion"
+  }
+]
+
+the_hunt.checkpoints.create!(checkpoints_data)
+
+
+
+
+
+--------------------------------------------------
