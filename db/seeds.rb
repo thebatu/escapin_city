@@ -46,10 +46,8 @@ category5 = Category.create!(name:"Arts", photo: 'art.jpg')
 category6 = Category.create!(name:"Foods & Beverages", photo: 'foodie.jpg')
 category7 = Category.create!(name:"Sports", photo: 'sport.jpeg')
 category8 = Category.create!(name:"Music", photo: 'music.jpg')
-
-
-
 puts "-" * 100
+
 
 cities = [
   '33000 Bordeaux',
@@ -66,7 +64,7 @@ cities = [
 ]
 puts 'Start seeding Hunts...'
 cities.each do |city|
-  10.times do
+  2.times do
   hunt = Hunt.new(
       name: Faker::App.name,
       city: city,
@@ -116,13 +114,15 @@ Hunt.all.each do |hunt|
   end
 end
 
+
+
 the_hunt_data = {
   name: "Mystic Burdigala",
   city: "Bordeaux",
   mydistance: 5,
   difficulty: 3,
   user: User.first,
-  category: Category.find_by_name("cultural"),
+  category: Category.find_by_name("Cultural")
 }
 the_hunt = Hunt.create!(the_hunt_data)
 
