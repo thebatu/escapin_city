@@ -4,7 +4,23 @@
       <div class="side-menu">
         <div id="hunt-title-category">
           <h1><%= @hunt.name %></h1>
+
+          <h3><%= @hunt.category.name %></h3>
+        </div>
+        <div id="hunt-description">
+          <p>Mystic Burdigala is an amazing escape for people who want to discover Bordeaux like no one ! It’s full of beautiful sight seeing and the game is quite easy. That’s the perfect way to get an idea about all the hidden treasure of Bordeaux</p>
+        </div>
+        <div class="hunt-map text-center">
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=275x274&path=#{@hunt.gmap_path}&sensor=false&key=#{ENV['API_KEY']}" %>
+        </div>
+        <div>
+          <%= simple_form_for :hunt, url: play_hunt_path(@hunt), method: :get do |f| %>
+            <%= f.button :submit, "Let's Go !", class: "btn btn-success btn-lg margin-button"%>
+          <% end %>
+          <%= link_to "Back", :back,  class: "btn btn-success btn-lg margin-button" %>
+
           <h3 class="text-muted"><%= @hunt.category.name %></h3>
+
         </div>
       </div>
     </div>
