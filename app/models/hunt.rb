@@ -13,7 +13,7 @@ class Hunt < ApplicationRecord
     elsif !city.empty?
       self.all.near(city, 200)
     elsif !category_id.empty?
-      @self.where(category_id: category_id)
+      self.where(category_id: category_id)
     else
       self.all
     end
