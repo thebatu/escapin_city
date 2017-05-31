@@ -1,16 +1,16 @@
 .content {
-  background-color: #FFFFFF;
+  background-color: #FEF7E5;
 }
 
 .container {
-    background-color: #FFFFFF;
+    background-color: #FEF7E5;
 }
 h1 {
   font-family: "Baloo", "Open Sans",Verdana,Geneva,sans-serif;
   font-size: 25px;
   margin-bottom: 25px;
   text-align: center;
-  color: white;
+  color: #141829;
 }
 .hunt-card {
   position: relative;
@@ -20,7 +20,7 @@ h1 {
   flex-direction: column;
   padding: 0px;
   margin-bottom: 40px;
-  background-color: #272727;
+  background-color: #141829;
   border-radius: 5px;
 }
 .top-hunt-card {
@@ -49,13 +49,13 @@ h2 {
   line-height: 8px;
 }
 .description {
-  color: white;
+  color: #FEF7E5;
   font-family: "Open Sans",Verdana,Geneva,sans-serif;
   font-size: 12px;
   padding-left: 10px;
 }
 .bottom-right-hunt-card {
-  color: white;
+  color: #FEF7E5;
   font-family: "Open Sans",Verdana,Geneva,sans-serif;
   height: 35%;
   width: 100%;
