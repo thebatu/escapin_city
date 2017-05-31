@@ -14,6 +14,16 @@ class HuntsController < ApplicationController
   end
 
   def show
+    @waypoints = @hunt.checkpoints
+    # .map do |cp|
+    #   {location: [cp.lat, cp.log], stopover: true}
+    # end
+
+    # @waypoints = Gmaps4rails.build_markers(@waypoints) do |check, marker|
+    #   marker.lat check.lat
+    #   marker.lng check.log
+    # end
+
   end
 
   def next_position
@@ -63,8 +73,8 @@ class HuntsController < ApplicationController
       marker.lat check.lat
       marker.lng check.log
       marker.infowindow "<b>#{@checkpoint.clue}</b>"
+
     end
-    @hash.push(@latitude, @longitude)
   end
 
 
