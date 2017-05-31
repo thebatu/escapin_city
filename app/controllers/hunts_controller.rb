@@ -8,9 +8,9 @@ class HuntsController < ApplicationController
     if params[:hunt]
       city = params[:hunt][:city]
       category_id = params[:hunt][:category]
-      @hunts = Hunt.search(city, category_id)
+      @hunts = Hunt.order(created_at: :desc).search(city, category_id)
     else
-      @hunts = Hunt.first(8)
+      @hunts = Hunt.order(created_at: :desc)
     end
   end
 
