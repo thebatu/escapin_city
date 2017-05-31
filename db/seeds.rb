@@ -131,25 +131,25 @@ checkpoints_data = [
     lat: 44.849803,
     log:-0.578613,
     content: "key was made by Alex the first",
-    clue: "find the key next to the fountine"
+    clue: "find the key next to the fountain"
   },
   {
     lat: 44.849803,
     log:-0.574634,
     content:"Castle is the first to be built in this area",
-    clue: "find the castle"
+    clue: "find the old castle with lion statu"
   },
   {
     lat: 44.841032,
     log:-0.580720,
-    content: " 300 people died here by the black virus",
-    clue: "find 300 and one "
+    content: " 300 people died here by the black plague",
+    clue: "find traces of old people "
   },
   {
     lat: 44.837667,
     log:-0.576767,
-    content: "the castsle is the biggest in Gironde",
-    clue: "find the castle"
+    content: "the castle is the biggest in Gironde",
+    clue: "find the huge castle"
   },
   {
     lat: 44.838568,
