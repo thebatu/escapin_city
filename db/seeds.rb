@@ -32,14 +32,14 @@ end
 puts "-" * 100
 
 
-category1 = Category.create!(name:"family", photo: 'familie.jpg')
-category2 = Category.create!(name:"friends", photo: 'Friends.jpg')
-category3 = Category.create!(name:"cultural", photo: 'cultural.jpeg')
-category4 = Category.create!(name:"historical", photo: 'historical.jpeg')
-category5 = Category.create!(name:"arts", photo: 'art.jpg')
-category6 = Category.create!(name:"foods$beverages", photo: 'foodie.jpg')
-category7 = Category.create!(name:"sports", photo: 'sport.jpeg')
-category8 = Category.create!(name:"music", photo: 'music.jpg')
+category1 = Category.create!(name:"Family", photo: 'familie.jpg')
+category2 = Category.create!(name:"Friends", photo: 'Friends.jpg')
+category3 = Category.create!(name:"Cultural", photo: 'cultural.jpeg')
+category4 = Category.create!(name:"Historical", photo: 'historical.jpeg')
+category5 = Category.create!(name:"Arts", photo: 'art.jpg')
+category6 = Category.create!(name:"Foods & Beverages", photo: 'foodie.jpg')
+category7 = Category.create!(name:"Sports", photo: 'sport.jpeg')
+category8 = Category.create!(name:"Music", photo: 'music.jpg')
 
 
 
