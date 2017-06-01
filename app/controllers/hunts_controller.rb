@@ -34,7 +34,7 @@ class HuntsController < ApplicationController
       marker.lat check.lat
       marker.lng check.log
       marker.title   "#checkpoint = " + @checkpoint.position.to_s
-      # marker.infowindow "<img src = #{view_context.image_path check.photo} class = 'info_window'> <p class = 'info_window'>#{@checkpoint.clue}</p>"
+      marker.infowindow "<img src = #{view_context.image_path check.photo} class = 'info_window'> <p class = 'info_window'>#{@checkpoint.clue}</p>"
     end
   end
 
@@ -51,11 +51,12 @@ class HuntsController < ApplicationController
     loc_checkpoint = [@current_checkpoint.lat , @current_checkpoint.log ]
 
     distance = Geocoder::Calculations.distance_between(loc_nav,loc_checkpoint)
-    byebug
+
      if @current_checkpoint.id == @hunt.checkpoints.last.id
        @end_of_game = true
      else
-      if distance > (1 + accuracy.to_f) # 70 supposed min distance to treasure
+       
+      if distance < (1 + accuracy.to_f) # 70 supposed min distance to treasure
         if @current_checkpoint.last?
           @checkpoint_fail = true
         else
@@ -71,7 +72,7 @@ class HuntsController < ApplicationController
         marker.lat check.lat
         marker.lng check.log
         marker.infowindow "<b>#{@checkpoint.clue}</b>"
-        # marker.infowindow "<img src = #{view_context.image_path check.photo} class = 'info_window'> <b>#{@checkpoint.clue}</b>"
+        marker.infowindow "<img src = #{view_context.image_path check.photo} class = 'info_window'> <b>#{@checkpoint.clue}</b>"
       end
     end
   end

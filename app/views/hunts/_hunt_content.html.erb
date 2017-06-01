@@ -11,12 +11,13 @@
 
 <div id="map"></div>
 
-      <%= simple_form_for :check, url: check_hunt_path(@hunt), method: :post, remote: true, html: { id: "check-form" } do |f| %>
-        <%= f.input :checkpoint_id, input_html: { value: @checkpoint.id }, :as => :hidden %>
-        <%= f.input :latitude , :as => :hidden%>
-        <%= f.input :longitude, :as => :hidden%>
-        <%= f.input :accuracy ,:as => :hidden%>
-        <%= f.submit 'verify location', class: "btn btn-primary btn-lg", id: "btn-verify"%>
-      <% end %>
+<%= simple_form_for :check, url: check_hunt_path(@hunt), method: :post, remote: true, html: { id: "check-form" } do |f| %>
+  <%= f.input :checkpoint_id, input_html: { value: @checkpoint.id }, :as => :hidden %>
+  <%= f.input :latitude , :as => :hidden %>
+  <%= f.input :longitude, :as => :hidden %>
+  <%= f.input :accuracy ,:as => :hidden %>
+<% end %>
+
+<%= link_to 'verify location', '#', class: "btn btn-primary btn-lg", id: "btn-verify"%>
 
 <button type="button" class="btn btn-primary my-modal-button" data-toggle="modal" data-target=".bs-example-modal-sm" id="btn-clue">Clue</button>
