@@ -10,7 +10,7 @@
       styles: mapStyle
       }
     }, function() {
-      circle = [{lng: <%= @checkpoint.log %>, lat: <%= @checkpoint.lat %>, radius: 25, strokeColor: '#0000FF'}]
+      circle = [{lng: <%= @checkpoint.log %>, lat: <%= @checkpoint.lat %>, radius: 25, strokeColor: '#FFFFFF'}]
       var markers = handler.addMarkers(<%= raw @hash.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
@@ -25,7 +25,7 @@
     $('#fail-modal .modal-body').html('<%= @checkpoint.clue %>');
     $('#fail-modal').modal('show');
   <% else %>
-    $('#content-modal .modal-body').html('<%= @checkpoint.content %>');
+    $('#content-modal .modal-body').html('<%= @current_checkpoint.content %>');
     $('#content-modal').modal('show');
   <% end %>
 

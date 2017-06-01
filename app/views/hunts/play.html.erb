@@ -2,25 +2,23 @@
   <div class="my-content">
     <div class="hunt-content">
 
+      <div id="hunt-contents">
+        <%= render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>
+      </div>
 
-    <div id="hunt-contents">
-      <%= render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>
-    </div>
-
-    <div class="modal fade" id="content-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3>Well done! You found the checkpoint!<i class="fa fa-check"></i></h3>
-          </div>
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Go to the next checkpoint</button>
-          </div>
-        </div>
+      <div class="modal fade" id="content-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Well done! You found the checkpoint!<i class="fa fa-check"></i>
+        </h3>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">start the next checkpoint</button>
       </div>
     </div>
+  </div></div>
 
     <div class="modal fade" id="fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -118,11 +116,7 @@
 
         });
       </script>
-
     <% end %>
-
-
-
     </div>
   </div>
 </div>
