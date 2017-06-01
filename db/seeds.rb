@@ -130,64 +130,72 @@ checkpoints_data = [
   {
     lat: 44.849803,
     log:-0.578613,
-    content: "key was made by Alex the first",
-    clue: "find the key next to the fountain",
-    photo: 'saint_andre.jpg'
+    content: "The Jardin Public has been dear to the hearts of the Bordelais since its creation in 1746. A veritable "green lung" in the city centre, the 11 hectares of grass, trees, flowers, and plants also include a children's playground and the famous Guignol Guérin puppet show.",
+    clue: "It's surrounded by a blue and yellow gates",
+    photo: 'parc.jpg',
+    description: "Find the most famous park of Bordeaux"
   },
   {
-    lat: 44.849803,
-    log:-0.574634,
-    content:"Castle is the first to be built in this area",
-    clue: "find the old castle with lion statu",
-    photo: 'saint_andre.jpg'
+    lat: 44.845006,
+    log:-0.574816,
+    content:"The Place des Quinconces, located in Bordeaux, France, was laid out in 1820 on the site of Château Trompette and was intended to prevent rebellion against the city. Its guns were turned towards the centre. Its current shape (lengthened rectangle rounded off with a semicircle) was adopted in 1816. Trees were planted (in quincunxes, hence the name of the square) in 1818.",
+    clue: "You'll find it on the largest square of the city",
+    photo: 'quinconces.jpg',
+    description: "Find the fountain with the horses in Bordeaux"
   },
   {
-    lat: 44.841032,
-    log:-0.580720,
-    content: " 300 people died here by the black plague",
-    clue: "find traces of old people ",
-    photo: 'saint_andre.jpg'
+    lat: 44.842902,
+    log:-0.577695,
+    content: "Located in a prime position in the prestigious retail district 'The Golden Triangle', formed by the Cours de l'Intendance, the Cours Clemenceau and the Allées de Tourny, this shopping center is an ideal place to go sightseeing and shopping in an outsantding architectural setting.",
+    clue: "It's in the quarter called the Golden triangle",
+    photo: 'grands_hommes.jpg',
+    description: "Find the market with a rounded form in Bordeaux "
 
   },
   {
     lat: 44.837667,
     log:-0.576767,
-    content: "the castle is the biggest in Gironde",
-    clue: "find the huge castle",
-    photo: 'saint_andre.jpg'
+    content: "The cathedral was consecrated by Pope Urban II in 1096. Of the original Romanesque edifice, only a wall in the nave remains. The Royal Gate is from the early 13th century, while the rest of the construction is mostly from the 14th-15th centuries. The building is a national monument of France.",
+    clue: "It's close to the maire's working place",
+    photo: 'saint_andre.jpg',
+    description: "Find the biggest religious monument of Bordeaux"
 
   },
   {
-    lat: 44.838568,
-    log: -0.572869,
-    content: "this famouse horse was ridden by Alexander the great",
-    clue: "look for the horse",
-    photo: 'saint_andre.jpg'
+    lat: 44.838692,
+    log: -0.568591,
+    content: "Cailhau the door (its name recalls the accumulated stones at his feet by the Garonne which served to ballast the ship), built in the late fifteenth century, was part of the ramparts. She acted as a triumphal arch and defensive gate.",
+    clue: "The style of this door is Gothic - Renaisssance",
+    photo: 'caillaux.jpg',
+    description: "Find the door in Bordeaux which is 35 meters high"
 
   },
   {
-    lat: 44.836683,
-    log:-0.566696,
-    content: "this tree is the oldest in the reigon",
-    clue: " look for an old tree!",
-    photo: 'saint_andre.jpg'
+    lat: 44.841717,
+    log:-0.569316
+    content: "Located across from Place de la Bourse, between Quai de la Douane and Quai Louis XVIII, this spectacular pool, designed by landscape artist Michel Corajoud, alternates a mirror effect and artificial misting in an extraordinary way.",
+    clue: "It's close to the quinconces place",
+    photo: 'mirroir.jpg',
+    description: "Find our most famous mirror "
 
   },
   {
     lat: 44.840180,
     log: -0.560146,
-    content: "this roof-top is standing still since 1863",
-    clue: "find the red roof-top",
-    photo: 'saint_andre.jpg'
+    content: "Overlooking the Place Stalingrad, opposite the stone bridge and the Garonne, this immense blue lion-like protective, was directed by Veilhan for a public commission in 2005, as part of the tramway works. Made of polystyrene composites, metal frame and polyester resin, it is a true visual landmark at the entrance of the Bastide.",
+    clue: "It's 8 feet long and 6 meters high.",
+    photo: 'lion.jpg',
+    description: "Find the king of animals in Bordeaux "
 
   },
   {
     lat: 44.849376,
     log: -0.561242,
-    content: "the huge sand dune is part of the structure",
-    clue: "find the yellow sand",
-    photo: 'saint_andre.jpg'
-    
+    content: "Located among the warehouses of a former military barracks in Bordeaux, DARWIN is an alternative space shared by 100 companies and 30 associations united around common goals: the reduction of their companies’ environmental footprints, creating new economic synergies and promoting urban cultures.",
+    clue: "It is inside an eco-quarter of Bordeaux",
+    photo: 'darwin.jpg',
+    description: "Find the only vortex in Bordeaux"
+
   }
 ]
 
