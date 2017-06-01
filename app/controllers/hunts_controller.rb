@@ -34,7 +34,10 @@ class HuntsController < ApplicationController
       marker.lat check.lat
       marker.lng check.log
       marker.title   "#checkpoint = " + @checkpoint.position.to_s
-      # marker.infowindow "<img src = #{view_context.image_path check.photo} class = 'info_window'> <p class = 'info_window'>#{@checkpoint.clue}</p>"
+      marker.infowindow "
+        <img src = #{view_context.image_path check.photo} class='info_window'>
+        <p class='info_window_text'>#{@checkpoint.clue}</p>
+      "
     end
   end
 
@@ -70,8 +73,10 @@ class HuntsController < ApplicationController
       @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
         marker.lat check.lat
         marker.lng check.log
-        marker.infowindow "<b>#{@checkpoint.clue}</b>"
-        # marker.infowindow "<img src = #{view_context.image_path check.photo} class = 'info_window'> <b>#{@checkpoint.clue}</b>"
+        marker.infowindow "
+        <img src = #{view_context.image_path check.photo} class='info_window'>
+        <p class='info_window_text'>#{@checkpoint.clue}</p>
+        "
       end
     end
   end

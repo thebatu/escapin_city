@@ -1,7 +1,11 @@
 .info_window {
-  width: 100px;
-  height: 100px;
-}
-p {
-  color : red;
-}
+  border-radius: 5px;
+  width: 200px;
+  height: 175px;
+  }
+.info_window_text {
+  padding-top: 10px;
+  color : #141829;
+  font-weight: bolder;
+  font-size: 15px;
+  }
