@@ -3,25 +3,31 @@
     <div class="col-md-6">
       <div class="side-menu">
         <div id="hunt-title-category">
-          <h1><%= @hunt.name %></h1>
-          <h3 class="text-muted"><%= @hunt.category.name %></h3>
+          <h1><%= @hunt.name %><br><%= @hunt.category.name %></h1>
+        </div>
+        <div class="distance-info">
+          <p>Distance : 5.0 km</p>
+          <p>Difficulty : 3/5</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="map-test" style="width: 100%; height: 200px"></div>
+<div id="map-test" style="width: 100%; height: 350px"></div>
 
-<br>
+<div id="hunt-description">
+  <p class="hunt-desc-text">Mystic Burdigala is the perfect choice for people who wants to discover Bordeaux with some never seen angles before! <br><br>
+  Quite a lot of beautiful sight seeing and famous spots that totally worths the medium difficulty required for this escape. Such a perfect way to dig out all the hidden treasures of the magnificent Bordeaux!</p>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
-      <%= link_to "Back", :back,  class: "btn btn-success btn-lg margin-button" %>
+      <%= link_to "Back", :back,  class: "btn btn-success btn-lg margin-button design-button" %>
     </div>
     <div class="col-xs-6 text-right">
       <%= simple_form_for :hunt, url: play_hunt_path(@hunt), method: :get do |f| %>
-        <%= f.button :submit, "Let's Go !", class: "btn btn-success btn-lg margin-button"%>
+        <%= f.button :submit, "Go !", class: "btn btn-success btn-lg margin-button design-button"%>
       <% end %>
 
     </div>
@@ -62,9 +68,19 @@
 
   calcRoute(); // call this anywhere you want
   $(document).ready(function(){
+
+    var mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"},{"weight":"0.20"},{"lightness":"28"},{"saturation":"23"},{"visibility":"off"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#494949"},{"lightness":13},{"visibility":"off"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#08304b"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#0c4152"},{"lightness":5}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#0b434f"},{"lightness":25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#0b3d51"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#146474"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#021019"}]}]
+
     var handler = Gmaps.build('Google');
     handler.buildMap({ internal: { id: 'map-test' }}, function() {
 
+    var handler = Gmaps.build('Google');
+    handler.buildMap({
+      internal: { id: 'map-test' },
+      provider: {
+        styles: mapStyle
+      }
+    }, function() {
       directionsDisplay.setMap(handler.getMap());
     });
   });
