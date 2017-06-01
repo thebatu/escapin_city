@@ -3,9 +3,10 @@ class Checkpoint < ApplicationRecord
   belongs_to :hunt
   acts_as_list scope: :hunt
 
-
-
   def lat_lng
     "#{lat},#{log}"
   end
+  
+
+
 end

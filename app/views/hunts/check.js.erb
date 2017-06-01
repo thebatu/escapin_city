@@ -1,15 +1,12 @@
 $('#hunt-contents').html("<%= j render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>")
 
-
 $(document).ready(function() {
   var handler = Gmaps.build('Google');
   handler.buildMap({ internal: { id: 'map' } }, function() {
-    var markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
-
     handler.fitMapToBounds();
-
-    handler.getMap().setZoom(19);
+    handler.getMap().setZoom(16);
   });
 });
 
@@ -21,4 +18,10 @@ $('#check_checkpoint_id').val(<%= @checkpoint.id %>)
 <% else %>
   $('#content-modal .modal-body').html('<%= @checkpoint.content %>');
   $('#content-modal').modal('show');
+<% end %>
+console.log('<%= @current_checkpoint.id%>' )
+console.log('<%=@hunt.checkpoints.last.id%>' )
+ <% if @end_of_game %>
+  $('#fail-modal .modal-body').html('<%= @current_checkpoint.id %>');
+  $('#fail-modal').modal('show');
 <% end %>

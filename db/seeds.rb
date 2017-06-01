@@ -38,14 +38,14 @@ User.create!(email: "toto@toto.com", password: "totototo");
 puts "-" * 100
 
 
-category1 = Category.create!(name:"Family", photo: 'familie.jpg')
-category2 = Category.create!(name:"Friends", photo: 'Friends.jpg')
-category3 = Category.create!(name:"Cultural", photo: 'cultural.jpg')
-category4 = Category.create!(name:"Historical", photo: 'historical.jpg')
-category5 = Category.create!(name:"Arts", photo: 'art.jpg')
-category6 = Category.create!(name:"Foods & Beverages", photo: 'foodie.jpg')
-category7 = Category.create!(name:"Sports", photo: 'sport.jpg')
-category8 = Category.create!(name:"Music", photo: 'music.jpg')
+Category.create!(name:"Family", photo: 'familie.jpg')
+Category.create!(name:"Friends", photo: 'Friends.jpg')
+Category.create!(name:"Cultural", photo: 'cultural.jpg')
+Category.create!(name:"Historical", photo: 'historical.jpg')
+Category.create!(name:"Arts", photo: 'art.jpg')
+Category.create!(name:"Foods & Beverages", photo: 'foodie.jpg')
+Category.create!(name:"Sports", photo: 'sport.jpg')
+Category.create!(name:"Music", photo: 'music.jpg')
 puts "-" * 100
 
 

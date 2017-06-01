@@ -28,8 +28,6 @@
   </div>
 </div>
 
-
-
 <% content_for(:after_js) do %>
 
 <script>
@@ -53,7 +51,7 @@
           <% end %>
         ],
       <% end %>
-      travelMode: google.maps.TravelMode.WALKING
+      travelMode: google.maps.TravelMode.WALKING,
     };
     directionsService.route(request, function(response, status) {
       if (status == google.maps.DirectionsStatus.OK) {
@@ -64,9 +62,9 @@
 
   calcRoute(); // call this anywhere you want
   $(document).ready(function(){
-
     var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map-test' } }, function() {
+    handler.buildMap({ internal: { id: 'map-test' }}, function() {
+
       directionsDisplay.setMap(handler.getMap());
     });
   });

@@ -33,7 +33,6 @@ class HuntsController < ApplicationController
   def prev_position
   end
 
-
   def play
     @checkpoint = @hunt.checkpoints.first
     @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
@@ -41,7 +40,10 @@ class HuntsController < ApplicationController
       marker.lng check.log
       marker.title   "#checkpoint = " + @checkpoint.position.to_s
       marker.infowindow "<b>#{@checkpoint.clue}</b>"
-      # marker.infowindow render_to_string(partial: "map_box", locals: { checkpoint: @checkpoint })
+      marker.picture({
+       url: @checkpoint.photo,
+       width: 32,
+       height: 32})
     end
   end
 
@@ -61,20 +63,26 @@ class HuntsController < ApplicationController
 
     distance = Geocoder::Calculations.distance_between(loc_nav,loc_checkpoint)
 
-    if distance > (1 + accuracy.to_f) # 70 supposed min distance to treasure
-      @checkpoint = @current_checkpoint.lower_item
-      @show_content = @checkpoint.content
-      @checkpoint_fail = false
-    else
-      @checkpoint = @current_checkpoint
-      @show_content = nil
-      @checkpoint_fail = true
-    end
-    @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
-      marker.lat check.lat
-      marker.lng check.log
-      marker.infowindow "<b>#{@checkpoint.clue}</b>"
-
+     if @current_checkpoint.id == @hunt.checkpoints.last.id
+       @end_of_game = true
+     else
+      if distance > (1 + accuracy.to_f) # 70 supposed min distance to treasure
+        if @current_checkpoint.last?
+          @checkpoint_fail = true
+        else
+          @checkpoint = @current_checkpoint.lower_item
+          @checkpoint.content
+        end
+      else
+        @checkpoint = @current_checkpoint
+        @show_content = nil
+        @checkpoint_fail = true
+      end
+      @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
+        marker.lat check.lat
+        marker.lng check.log
+        marker.infowindow "<b>#{@checkpoint.clue}</b>"
+      end
     end
   end
 

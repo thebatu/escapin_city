@@ -9,7 +9,6 @@
 $(function(){
   var options = {
     enableHighAccuracy: true,
-
     maximumAge: 0
   };
 
