@@ -132,7 +132,7 @@ checkpoints_data = [
     log:-0.578613,
     content: "The Jardin Public has been dear to the hearts of the Bordelais since its creation in 1746. A veritable "green lung" in the city centre, the 11 hectares of grass, trees, flowers, and plants also include a children's playground and the famous Guignol Guérin puppet show.",
     clue: "It's surrounded by a blue and yellow gates",
-    photo: '',
+    photo: 'parc.jpg',
     description: "Find the most famous park of Bordeaux"
   },
   {
@@ -140,7 +140,7 @@ checkpoints_data = [
     log:-0.574816,
     content:"The Place des Quinconces, located in Bordeaux, France, was laid out in 1820 on the site of Château Trompette and was intended to prevent rebellion against the city. Its guns were turned towards the centre. Its current shape (lengthened rectangle rounded off with a semicircle) was adopted in 1816. Trees were planted (in quincunxes, hence the name of the square) in 1818.",
     clue: "You'll find it on the largest square of the city",
-    photo: '',
+    photo: 'quinconces.jpg',
     description: "Find the fountain with the horses in Bordeaux"
   },
   {
@@ -148,7 +148,7 @@ checkpoints_data = [
     log:-0.577695,
     content: "Located in a prime position in the prestigious retail district 'The Golden Triangle', formed by the Cours de l'Intendance, the Cours Clemenceau and the Allées de Tourny, this shopping center is an ideal place to go sightseeing and shopping in an outsantding architectural setting.",
     clue: "It's in the quarter called the Golden triangle",
-    photo: '',
+    photo: 'grands_hommes.jpg',
     description: "Find the market with a rounded form in Bordeaux "
 
   },
@@ -166,7 +166,7 @@ checkpoints_data = [
     log: -0.568591,
     content: "Cailhau the door (its name recalls the accumulated stones at his feet by the Garonne which served to ballast the ship), built in the late fifteenth century, was part of the ramparts. She acted as a triumphal arch and defensive gate.",
     clue: "The style of this door is Gothic - Renaisssance",
-    photo: '',
+    photo: 'caillaux.jpg',
     description: "Find the door in Bordeaux which is 35 meters high"
 
   },
@@ -175,7 +175,7 @@ checkpoints_data = [
     log:-0.569316
     content: "Located across from Place de la Bourse, between Quai de la Douane and Quai Louis XVIII, this spectacular pool, designed by landscape artist Michel Corajoud, alternates a mirror effect and artificial misting in an extraordinary way.",
     clue: "It's close to the quinconces place",
-    photo: '',
+    photo: 'mirroir.jpg',
     description: "Find our most famous mirror "
 
   },
@@ -184,7 +184,7 @@ checkpoints_data = [
     log: -0.560146,
     content: "Overlooking the Place Stalingrad, opposite the stone bridge and the Garonne, this immense blue lion-like protective, was directed by Veilhan for a public commission in 2005, as part of the tramway works. Made of polystyrene composites, metal frame and polyester resin, it is a true visual landmark at the entrance of the Bastide.",
     clue: "It's 8 feet long and 6 meters high.",
-    photo: '',
+    photo: 'lion.jpg',
     description: "Find the king of animals in Bordeaux "
 
   },
@@ -193,7 +193,7 @@ checkpoints_data = [
     log: -0.561242,
     content: "Located among the warehouses of a former military barracks in Bordeaux, DARWIN is an alternative space shared by 100 companies and 30 associations united around common goals: the reduction of their companies’ environmental footprints, creating new economic synergies and promoting urban cultures.",
     clue: "It is inside an eco-quarter of Bordeaux",
-    photo: '',
+    photo: 'darwin.jpg',
     description: "Find the only vortex in Bordeaux"
 
   }
