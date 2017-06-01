@@ -1,30 +1,35 @@
-$('#hunt-contents').html("<%= j render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>")
+<% unless @end_of_game %>
+  $('#hunt-contents').html("<%= j render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>")
 
-$(document).ready(function() {
-  var handler = Gmaps.build('Google');
-  handler.buildMap({ internal: { id: 'map' } }, function() {
-    circle = [{lng: <%= @checkpoint.log %>, lat: <%= @checkpoint.lat %>, radius: 25, strokeColor: '#0000FF'}]
-    var markers = handler.addMarkers(<%= raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(16);
-    handler.addCircles(circle)
+  $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      circle = [{lng: <%= @checkpoint.log %>, lat: <%= @checkpoint.lat %>, radius: 25, strokeColor: '#0000FF'}]
+      var markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(16);
+      handler.addCircles(circle)
+    });
   });
-});
 
-// update checkoint_id field
-$('#check_checkpoint_id').val(<%= @checkpoint.id %>)
-<% if @checkpoint_fail %>
-  $('#fail-modal .modal-body').html('<%= @checkpoint.clue %>');
-  $('#fail-modal').modal('show');
+  // update checkoint_id field
+  $('#check_checkpoint_id').val(<%= @checkpoint.id %>)
+  <% if @checkpoint_fail %>
+    $('#fail-modal .modal-body').html('<%= @checkpoint.clue %>');
+    $('#fail-modal').modal('show');
+  <% else %>
+    $('#content-modal .modal-body').html('<%= @checkpoint.content %>');
+    $('#content-modal').modal('show');
+  <% end %>
+
+  console.log('I am in check.js.erb and checkoint_id = '  + '<%= @current_checkpoint.id%>' )
+
 <% else %>
-  $('#content-modal .modal-body').html('<%= @checkpoint.content %>');
-  $('#content-modal').modal('show');
-<% end %>
 
-console.log('I am in check.js.erb and checkoint_id = '  + '<%= @current_checkpoint.id%>' )
+   <% if @end_of_game %>
+    $('#end-modal .modal-body').html('Congrads you won');
+    $('#end-modal').modal('show');
+   <% end %>
 
- <% if @end_of_game %>
-  $('#fail-modal .modal-body').html('<%= @current_checkpoint.id %>');
-  $('#fail-modal').modal('show');
 <% end %>

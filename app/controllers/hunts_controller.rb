@@ -36,7 +36,7 @@ class HuntsController < ApplicationController
       marker.title   "#checkpoint = " + @checkpoint.position.to_s
 
       marker.infowindow "
-        <img src = #{view_context.image_path check.photo} class='info_window'>
+        <img src='#{view_context.image_url(check.photo)}' class='info_window'>
         <p class='info_window_text'>#{@checkpoint.clue}</p>
       "
     end
@@ -60,7 +60,7 @@ class HuntsController < ApplicationController
        @end_of_game = true
      else
 
-      if distance < (1 + accuracy.to_f) # 70 supposed min distance to treasure
+      if distance < (30 + accuracy.to_f) # 70 supposed min distance to treasure
         if @current_checkpoint.last?
           @checkpoint_fail = true
         else
@@ -77,7 +77,7 @@ class HuntsController < ApplicationController
         marker.lng check.log
 
         marker.infowindow "
-        <img src = #{view_context.image_path check.photo} class='info_window'>
+        <img src='#{view_context.image_url(check.photo)}' class='info_window'>
         <p class='info_window_text'>#{@checkpoint.clue}</p>
         "
       end
