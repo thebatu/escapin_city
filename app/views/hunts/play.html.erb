@@ -70,6 +70,7 @@
             enableHighAccuracy: true,
             maximumAge: 0
           };
+          var userMarker = null;
 
           setUserPositionOnMap();
           setInterval(setUserPositionOnMap, 3000);
@@ -79,7 +80,10 @@
           }
 
           function setPosition(position) {
-            var userMarker = new google.maps.Marker({
+            if (userMarker) {
+              userMarker.setMap(null);
+            }
+            userMarker = new google.maps.Marker({
               position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
               map: handler.getMap(),
               icon: "<%= image_url 'bluecircle.png' %>"
