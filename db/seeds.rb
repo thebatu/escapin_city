@@ -38,14 +38,14 @@ User.create!(email: "toto@toto.com", password: "totototo");
 puts "-" * 100
 
 
-category1 = Category.create!(name:"Family", photo: 'familie.jpg')
-category2 = Category.create!(name:"Friends", photo: 'Friends.jpg')
-category3 = Category.create!(name:"Cultural", photo: 'cultural.jpg')
-category4 = Category.create!(name:"Historical", photo: 'historical.jpg')
-category5 = Category.create!(name:"Arts", photo: 'art.jpg')
-category6 = Category.create!(name:"Foods & Beverages", photo: 'foodie.jpg')
-category7 = Category.create!(name:"Sports", photo: 'sport.jpg')
-category8 = Category.create!(name:"Music", photo: 'music.jpg')
+Category.create!(name:"Family", photo: 'familie.jpg')
+Category.create!(name:"Friends", photo: 'Friends.jpg')
+Category.create!(name:"Cultural", photo: 'cultural.jpg')
+Category.create!(name:"Historical", photo: 'historical.jpg')
+Category.create!(name:"Arts", photo: 'art.jpg')
+Category.create!(name:"Foods & Beverages", photo: 'foodie.jpg')
+Category.create!(name:"Sports", photo: 'sport.jpg')
+Category.create!(name:"Music", photo: 'music.jpg')
 puts "-" * 100
 
 
@@ -131,49 +131,63 @@ checkpoints_data = [
     lat: 44.849803,
     log:-0.578613,
     content: "key was made by Alex the first",
-    clue: "find the key next to the fountain"
+    clue: "find the key next to the fountain",
+    photo: 'saint_andre.jpg'
   },
   {
     lat: 44.849803,
     log:-0.574634,
     content:"Castle is the first to be built in this area",
-    clue: "find the old castle with lion statu"
+    clue: "find the old castle with lion statu",
+    photo: 'saint_andre.jpg'
   },
   {
     lat: 44.841032,
     log:-0.580720,
     content: " 300 people died here by the black plague",
-    clue: "find traces of old people "
+    clue: "find traces of old people ",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.837667,
     log:-0.576767,
     content: "the castle is the biggest in Gironde",
-    clue: "find the huge castle"
+    clue: "find the huge castle",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.838568,
     log: -0.572869,
     content: "this famouse horse was ridden by Alexander the great",
-    clue: "look for the horse"
+    clue: "look for the horse",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.836683,
     log:-0.566696,
     content: "this tree is the oldest in the reigon",
-    clue: " look for an old tree!"
+    clue: " look for an old tree!",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.840180,
     log: -0.560146,
     content: "this roof-top is standing still since 1863",
-    clue: "find the red roof-top"
+    clue: "find the red roof-top",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.849376,
     log: -0.561242,
     content: "the huge sand dune is part of the structure",
-    clue: "find the yellow sand"
+    clue: "find the yellow sand",
+    photo: 'saint_andre.jpg'
+    
   }
 ]
 
