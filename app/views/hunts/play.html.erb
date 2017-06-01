@@ -41,6 +41,7 @@
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
+      navigator.geolocation.getCurrentPosition(success, error, options);
       circle = [{lng: <%= @checkpoint.log %>, lat: <%= @checkpoint.lat %>, radius: 25, strokeColor: '#0000FF'}]
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
@@ -52,8 +53,32 @@
         handler.addCircles(circle)
 
       });
+      function success(pos) {
+        var crd = pos.coords;
+
+        $('#check_latitude').val(crd.latitude);
+        $('#check_longitude').val(crd.longitude);
+        $('#check_accuracy').val(crd.accuracy);
+
+        console.log(" I am inside :after_js in play.html.erb")
+
+        //$('#check-form').submit();
+      };
+
+      function error(err) {
+        console.warn('ERROR(${err.code}): ${err.message}');
+      };
+      var options = {
+        enableHighAccuracy: true,
+        maximumAge: 0
+      };
+
     });
+
+
+
   </script>
+
 <% end %>
 
 

@@ -3,10 +3,12 @@ $('#hunt-contents').html("<%= j render 'hunt_content', hunt: @hunt, checkpoint: 
 $(document).ready(function() {
   var handler = Gmaps.build('Google');
   handler.buildMap({ internal: { id: 'map' } }, function() {
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    circle = [{lng: <%= @checkpoint.log %>, lat: <%= @checkpoint.lat %>, radius: 25, strokeColor: '#0000FF'}]
+    var markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setZoom(16);
+    handler.addCircles(circle)
   });
 });
 
@@ -19,8 +21,9 @@ $('#check_checkpoint_id').val(<%= @checkpoint.id %>)
   $('#content-modal .modal-body').html('<%= @checkpoint.content %>');
   $('#content-modal').modal('show');
 <% end %>
-console.log('<%= @current_checkpoint.id%>' )
-console.log('<%=@hunt.checkpoints.last.id%>' )
+
+console.log('I am in check.js.erb and checkoint_id = '  + '<%= @current_checkpoint.id%>' )
+
  <% if @end_of_game %>
   $('#fail-modal .modal-body').html('<%= @current_checkpoint.id %>');
   $('#fail-modal').modal('show');

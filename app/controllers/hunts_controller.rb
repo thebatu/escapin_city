@@ -27,30 +27,19 @@ class HuntsController < ApplicationController
 
   end
 
-  def next_position
-  end
-
-  def prev_position
-  end
-
   def play
     @checkpoint = @hunt.checkpoints.first
+
     @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
       marker.lat check.lat
       marker.lng check.log
       marker.title   "#checkpoint = " + @checkpoint.position.to_s
-      marker.infowindow "<b>#{@checkpoint.clue}</b>"
-      marker.picture({
-       url: @checkpoint.photo,
-       width: 32,
-       height: 32})
+      marker.infowindow "<img src = #{view_context.image_path check.photo} class = 'info_window'> <b>#{@checkpoint.clue}</b>"
     end
   end
 
-  def update_checkpoints(args)
-  end
-
   def check
+
     checkpoint_id = params[:check][:checkpoint_id]
     @current_checkpoint = Checkpoint.find(checkpoint_id)
 
@@ -62,7 +51,7 @@ class HuntsController < ApplicationController
     loc_checkpoint = [@current_checkpoint.lat , @current_checkpoint.log ]
 
     distance = Geocoder::Calculations.distance_between(loc_nav,loc_checkpoint)
-
+    byebug
      if @current_checkpoint.id == @hunt.checkpoints.last.id
        @end_of_game = true
      else
@@ -82,10 +71,10 @@ class HuntsController < ApplicationController
         marker.lat check.lat
         marker.lng check.log
         marker.infowindow "<b>#{@checkpoint.clue}</b>"
+        marker.infowindow "<img src = #{view_context.image_path check.photo} class = 'info_window'> <b>#{@checkpoint.clue}</b>"
       end
     end
   end
-
 
   private
 

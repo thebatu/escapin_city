@@ -131,49 +131,63 @@ checkpoints_data = [
     lat: 44.849803,
     log:-0.578613,
     content: "key was made by Alex the first",
-    clue: "find the key next to the fountain"
+    clue: "find the key next to the fountain",
+    photo: 'saint_andre.jpg'
   },
   {
     lat: 44.849803,
     log:-0.574634,
     content:"Castle is the first to be built in this area",
-    clue: "find the old castle with lion statu"
+    clue: "find the old castle with lion statu",
+    photo: 'saint_andre.jpg'
   },
   {
     lat: 44.841032,
     log:-0.580720,
     content: " 300 people died here by the black plague",
-    clue: "find traces of old people "
+    clue: "find traces of old people ",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.837667,
     log:-0.576767,
     content: "the castle is the biggest in Gironde",
-    clue: "find the huge castle"
+    clue: "find the huge castle",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.838568,
     log: -0.572869,
     content: "this famouse horse was ridden by Alexander the great",
-    clue: "look for the horse"
+    clue: "look for the horse",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.836683,
     log:-0.566696,
     content: "this tree is the oldest in the reigon",
-    clue: " look for an old tree!"
+    clue: " look for an old tree!",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.840180,
     log: -0.560146,
     content: "this roof-top is standing still since 1863",
-    clue: "find the red roof-top"
+    clue: "find the red roof-top",
+    photo: 'saint_andre.jpg'
+
   },
   {
     lat: 44.849376,
     log: -0.561242,
     content: "the huge sand dune is part of the structure",
-    clue: "find the yellow sand"
+    clue: "find the yellow sand",
+    photo: 'saint_andre.jpg'
+    
   }
 ]
 
