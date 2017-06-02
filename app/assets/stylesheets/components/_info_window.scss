@@ -1,11 +1,29 @@
 .info_window {
   border-radius: 5px;
   width: 200px;
-  height: 175px;
+  height: 160px;
+   border-radius: 4px;
   }
+
 .info_window_text {
   padding-top: 10px;
   color : #141829;
   font-weight: bolder;
   font-size: 15px;
   }
+
+#img-check {
+  box-shadow: 10px 10px 80px rgba(0,0,0,0.4);
+  -moz-box-shadow: 10px 10px 80px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 10px 10px 80px rgba(0,0,0,0.4);
+  margin-left: 11%;
+}
+
+#info-window-marker {
+  margin-top: 20%;
+}
+
+#info-window-marker p {
+  text-align: center;
+  margin-left: 11%;
+}
