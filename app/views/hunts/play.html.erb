@@ -10,12 +10,12 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3>Well done! You found the checkpoint!<i class="fa fa-check"></i>
+        <h3>Well done! You found the checkpoint! &nbsp&nbsp<i id="green-check"  class="fa fa-check"></i><i id="green-check"  class="fa fa-check"></i>
         </h3>
       </div>
       <div class="modal-body"></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">start the next checkpoint</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">start the next checkpoint</button>
       </div>
     </div>
   </div></div>
@@ -24,12 +24,12 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h3>You're not even close!<i class="fa fa-cross"></i></h3>
+            <h3>Getting closer, try again! &nbsp&nbsp&nbsp<i class="fa fa-times"></i></h3><i class="fa fa-times></i></h3>
           </div>
           <div class="modal-body">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Try again</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Try again</button>
           </div>
         </div>
       </div>
@@ -60,7 +60,8 @@
           handler.buildMap({
           internal: { id: 'map' },
           provider: {
-            styles: mapStyle
+            styles: mapStyle,
+            gestureHandling: 'greedy'
             }
           },function() {
             markers = handler.addMarkers(<%= raw @hash.to_json %>);
@@ -71,6 +72,7 @@
           });
 
           var options = {
+            timeout: 10000,
             enableHighAccuracy: true,
             maximumAge: 0
           };
@@ -80,7 +82,7 @@
           setInterval(setUserPositionOnMap, 9000);
 
           function setUserPositionOnMap() {
-            navigator.geolocation.getCurrentPosition(setPosition, error);
+            navigator.geolocation.getCurrentPosition(setPosition, error,  {timeout: 10000});
           }
 
           function setPosition(position) {
@@ -108,9 +110,9 @@
 
             $('#check-form').trigger('submit');
           }
-
           function error(err) {
-            console.warn('ERROR(${err.code}): ${err.message}');
+            console.warn("ERROR(${err.code}): ${err.message}");
+            console.log(err);
           };
 
 

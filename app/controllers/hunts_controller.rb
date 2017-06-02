@@ -28,7 +28,7 @@ class HuntsController < ApplicationController
   end
 
   def play
-    
+
     @checkpoint = @hunt.checkpoints.first
 
     @hash = Gmaps4rails.build_markers(@checkpoint) do |check, marker|
@@ -37,15 +37,14 @@ class HuntsController < ApplicationController
       marker.title "#checkpoint = " + @checkpoint.position.to_s
 
       marker.infowindow "
-        <img src='#{view_context.image_url(check.photo)}' class='info_window'>
-        <p class='info_window_text'>#{@checkpoint.description}</p>
+        <div id='info-window-marker'> <div id='img-check'> <img src='#{view_context.image_url(check.photo)}' class='info_window'> </div>
+        <p class='info_window_text'>#{@checkpoint.description}</p> </div>
       "
     end
   end
 
   def check
 
-    @here = "I am in check"
     checkpoint_id = params[:check][:checkpoint_id]
     @current_checkpoint = @hunt.checkpoints.find(checkpoint_id)
 
@@ -79,8 +78,8 @@ class HuntsController < ApplicationController
         marker.lng check.log
 
         marker.infowindow"
-          <img src='#{view_context.image_url(check.photo)}' class='info_window'>
-          <p class='info_window_text'>#{@checkpoint.description}</p>
+        <div id='info-window-marker'> <div id='img-check'> <img src='#{view_context.image_url(check.photo)}' class='info_window'> </div>
+        <p class='info_window_text'>#{@checkpoint.description}</p> </div>
         "
 
       end
