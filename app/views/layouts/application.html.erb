@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Escapin City</title>
+    <title>Escapin City - The funniest way to discover a city</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= favicon_link_tag 'favicon.png' %>
   </head>
   <body>
     <!-- <p class="notice"><%= notice %></p>
@@ -18,9 +19,9 @@
     <div class="content">
       <%= yield %>
     </div>
-    
+
     <%= render 'shared/footer' %>
-    
+
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=#{ENV['API_KEY']}" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
