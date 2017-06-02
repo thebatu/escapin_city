@@ -6,7 +6,7 @@
         <%= render 'hunt_content', hunt: @hunt, checkpoint: @checkpoint %>
       </div>
 
-      <div class="modal fade" id="content-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal fade common-modal-css" id="content-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -20,7 +20,7 @@
     </div>
   </div></div>
 
-    <div class="modal fade" id="fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade common-modal-css" id="fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -77,7 +77,7 @@
           var userMarker = null;
 
           setUserPositionOnMap();
-          setInterval(setUserPositionOnMap, 3000);
+          setInterval(setUserPositionOnMap, 9000);
 
           function setUserPositionOnMap() {
             navigator.geolocation.getCurrentPosition(setPosition, error);

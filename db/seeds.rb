@@ -131,7 +131,7 @@ checkpoints_data = [
     lat: 44.849803,
     log:-0.578613,
     content: "The Jardin Public has been dear to the hearts of the Bordelais since its creation in 1746. A veritable 'green lung' in the city centre, the 11 hectares of grass, trees, flowers, and plants also include a children's playground and the famous Guignol Guérin puppet show.",
-    clue: "It's surrounded by a blue and yellow gates",
+    clue: "It's surrounded by blue and yellow gates",
     photo: 'parc.jpg',
     description: "Find the most famous park of Bordeaux"
   },
