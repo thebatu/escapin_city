@@ -1,4 +1,4 @@
 meta_product_name: "Escapin' City"
 meta_title: "Escapin City - The funniest way to discover a city"
 meta_description: "Treasure hunt game in the city"
-meta_image: "http://imgur.com/a/xW62i.jpg"                       # should exist in `app/assets/images/`
+meta_image: "background_meta2.jpg"                       # should exist in `app/assets/images/`
