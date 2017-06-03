@@ -2,3 +2,4 @@ meta_product_name: "Escapin' City"
 meta_title: "Escapin City - The funniest way to discover a city"
 meta_description: "City Treasure Hunt game"
 meta_image: "background_meta2.jpg"                       # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
